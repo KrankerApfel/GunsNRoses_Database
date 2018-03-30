@@ -1,0 +1,10 @@
+BUGS :
+
+- Header : quand on rezize et qu'on lance l'animation, elle ne s'effectue pas correctement
+
+TODO LIST :
+- quel type dans le formulaire pour la durée de l'album ?
+- albumManager.php pour donner la liste des albums au formulaire artiste
+- instrumentManager.php pour donner la liste des instrument au formulaire artiste
+- upload d'image possible avec la méthode post dans formulaire
+- validForm()

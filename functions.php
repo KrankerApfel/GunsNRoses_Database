@@ -5,7 +5,15 @@ function connexion(string $dbHost, string $dbName, string $dbUser, string $dbPas
     $ptrDB = pg_connect($strConnex);
     return $ptrDB;
 }
-
+function valideForm(&$method, $tabCles) {
+    foreach ($tabCles as $cle) {
+        if (!isset($method[$cle]))
+            return FALSE;
+        if (!$method[$cle])
+            return FALSE;
+        }
+	return TRUE;
+    }
 /**
  * getRowByID
  * @param string $table
@@ -32,6 +40,7 @@ function deleteRowByID(string $table,string $id) {return true;}
    */
   function createPost(array $tab, $type) {
     if ($type == "artiste" ){
+      $statut =($tab['art_dateMort'] != "none")?$tab['art_dateMort']: "vivant";
       echo '<div class="container" >
             <div class="cadre">
               <button class="button" href="#">Modifier</button>
@@ -43,7 +52,7 @@ function deleteRowByID(string $table,string $id) {return true;}
                           <th><h1>'.$tab['art_prenom'].' '.$tab['art_nom'].'</h1></th>
                           <tr><td><b>Pseudo :</b> '.$tab['art_pseudo'].'</tr>
                           <tr><td><b>Date de naissance :</b> '.$tab['art_dateNaissance'].'</tr>
-                          <tr><td><b>Statut :</b> '.$tab['art_dateMort'].'</td></tr>
+                          <tr><td><b>Statut :</b> '.$statut.'</td></tr>
                           <tr><td><b>Instrument :</b>'.$tab['art_instrument'].'</td></tr>
                           <tr><td><b>Album.s :</b>'.$tab['album'].'</td></tr>
                           <tr><td><p><b>Description : </b>'.$tab['description'].'</p></td></tr>';

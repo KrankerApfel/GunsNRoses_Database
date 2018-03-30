@@ -1,0 +1,46 @@
+.logo_home {
+	max-width:600px;
+	padding:0em;
+	margin:1em auto;
+	text-align:center;
+}
+
+.logo_home img { /*img remplacer par canvas*/
+	width:90%;
+	margin:Oem;
+	padding:0em;
+}
+.navbar {
+	  max-width:1000px;
+		padding:0px 0px 0px 0px;
+		margin:0em auto;
+		position:relative;
+		z-index:10;
+}
+.navbar ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.navbar .active {
+    background-color: #8B0000;
+}

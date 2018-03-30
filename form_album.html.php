@@ -9,7 +9,7 @@
   <?php include 'navbar.php';?>
   <div class="container">
     <div class="cadre">
-      <form action="form_artiste.php" method="get" id="alb_form">
+      <form action="form_album.php" method="get" id="alb_form">
           <table>
             <tr>
               <th>Titre</th>

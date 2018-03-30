@@ -9,28 +9,28 @@
   <?php include 'navbar.php';?>
   <div class="container">
     <div class="cadre">
-      <form action="form_artiste.php" method="get" id="alb_form">
+      <form action="form_album.php" method="get" id="alb_form">
           <table>
             <tr>
-              <th>Titre</th>
+              <th>Titre*</th>
               <td><input type="text" name="titre" width="50%" required></td>
               <td rowspan="8" style="padding-left:4% ;"><img src="img/noImg.png" alt="placeholder">
               </td>
             </tr>
 
             <tr>
-              <th>Sortie</th>
-              <td><input name="sortie" type="date"></td>
+              <th>Sortie*</th>
+              <td><input name="sortie" type="date"required></td>
             </tr>
 
             <tr>
-              <th>Durée</th>
-              <td><input type="text" name="titre" width="50%" required></td>
+              <th>Durée*</th>
+              <td><input type="text" name="duree" width="50%" required></td>
             </tr>
 
             <tr>
               <th>Producteur</th>
-              <td><input type="text" name="producteur" width="50%" required></td>
+              <td><input type="text" name="producteur" width="50%"></td>
             </tr>
 
             <tr>
@@ -41,14 +41,14 @@
             <tr>
               <th>Genre</th>
               <td>
-                    <input type="radio" name="genre" value="vivant"> Heavy metal
-                    <input type="radio" name="genre" value="mort"> Rock
+                    <input type="radio" name="genre" value="Heavy metal"> Heavy metal
+                    <input type="radio" name="genre" value="Rock"> Rock
               </td>
             </tr>
 
             <tr>
               <th>Description</th>
-              <td><textarea rows="4" cols="50" name="description" form="art_form">Quelque mot à propos de l'artiste...</textarea></td>
+              <td><textarea rows="4" cols="50" name="description">Quelque mot à propos de l'artiste...</textarea></td>
             </tr>
           </table>
 

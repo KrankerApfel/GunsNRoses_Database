@@ -8,7 +8,7 @@ include 'functions.php';
 * TODO Tahina
 */
 
-$tab = array('nom', 'prenom', 'instrument');
+$tab = array('sortie', 'titre', 'duree');
 
 if (valideForm($_GET, $tab)) {
   echo '<div class="container" >
@@ -19,16 +19,15 @@ if (valideForm($_GET, $tab)) {
 	echo "<h3>Tout s'est effectué avec succés !<h3>";
 	echo "<ul>";
 	foreach($_GET as $key=> $val) {
-	  if(! is_array($val)){
-      echo "<li>";
-      if($val =="") $val = "non renseigné";
-  	  echo "$key: $val";
-  	  echo "</li>";
-    }
+	  echo "<li>";
+    if($val =="") $val = "non renseigné";
+	  echo "$key: $val";
+    $array["$key"] = $val;
+	  echo "</li>";
 	}
 	echo "</ul>";
-
   echo '</div></div>';
+  //insertRow($array);
 
 }
 else {
@@ -38,7 +37,6 @@ else {
   }
   echo "</ul>";
 }
-
 include 'footer.php';
 ?>
 </body>

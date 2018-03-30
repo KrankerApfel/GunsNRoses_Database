@@ -19,6 +19,7 @@
           célèbre groupe. Vous y trouverais également la liste des albums. Vous être libre d'ajouter, modifier
           ou supprimer un poste. <br/>Bonne visite sur notre site !
       </p>
+<<<<<<< HEAD
 	<div class="container" >
   	<div class="cadre">
     <h1>Bienvenue !</h1>
@@ -30,6 +31,13 @@
       <button class="button" href="#">Effectuer une recherche</button>
       <a href="form_artiste.html.php"><button class="button">Ajouter un artiste</button></a>
       <a href="form_album.html.php"><button class="button">Ajouter un album</button></a>
+=======
+
+        <button class="button" href="#">Effectuer une recherche</button>
+        <a href="form_artiste.html.php"><button class="button">Ajouter un artiste</button></a>
+        <button class="button">Ajouter un album</button>
+    </div>
+>>>>>>> 89efe88afbf2548052759268f3ae53fb99c7d182
   </div>
   <?php include 'footer.php' ?>
 </body>

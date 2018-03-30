@@ -12,14 +12,14 @@
       <form action="form_artiste.php" method="get" id="art_form">
           <table>
             <tr>
-              <th>Nom</th>
+              <th>Nom*</th>
               <td><input type="text" name="nom" width="50%" required></td>
               <td rowspan="8" style="padding-left:4% ;"><img src="img/noImg.png" alt="placeholder">
               </td>
             </tr>
 
             <tr>
-              <th>Prénom</th>
+              <th>Prénom*</th>
               <td><input type="text" name="prenom" width="50%" required></td>
             </tr>
 
@@ -34,18 +34,20 @@
             </tr>
 
             <tr>
-              <th>Statut</th>
+              <th>Mort</th>
               <td>
-                    <input type="radio" name="sratut" value="vivant"> vivant
-                    <input type="radio" name="sratut" value="mort"> mort
-                    <input name="statut" type="date">
+                    <input name="mort" type="date">
               </td>
             </tr>
 
             <tr >
-              <th>Instrument</th>
+              <th>Instrument*</th>
         			<td>
                 <select size="3" name="instrument" required>
+                  <option value='guitare' name='guitare'>guitare</option>
+                  <option value='piano' name='piano'>piano</option>
+                  <option value='chant' name='chant'>chant</option>
+
                       <!--include 'instrumentManager.php'-->
                 </select>
         			</td>

@@ -31,7 +31,7 @@
 
 .navbar li a {
     display: block;
-    color: white;
+    color: #fee9fc;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -43,4 +43,27 @@
 
 .navbar .active {
     background-color: #8B0000;
+}
+
+.container {
+	color: #fee9fc;
+	max-width:1000px;
+	padding:0px 0px 0px 0px;
+	margin:0em auto;
+	position:relative;
+
+  background-color: #333;
+  box-shadow:black 0px 5px 10px;
+  display: block;
+
+}
+.cadre{
+  border-style: solid;
+  border-width: 2px;
+  border-color: #fee9fc;
+
+	max-width:1000px;
+	padding:2%;
+	margin:1em auto;
+	position:relative;
 }

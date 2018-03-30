@@ -9,7 +9,17 @@
 	width:90%;
 	margin:Oem;
 	padding:0em;
+	display: none;/*j'ai ajouté ça pour que je remplace par le canvas*/
 }
+
+.logo_home canvas{/*LE canvas*/
+	max-width:600px;
+	max-height: 200px;
+	padding:0em;
+	margin:1em auto;
+	text-align:left;
+}
+
 .navbar {
 	  max-width:1000px;
 		padding:0px 0px 0px 0px;

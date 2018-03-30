@@ -2,24 +2,29 @@
 <html>
 <head>
   <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <!--Of course there's no escape of my p5.js magic-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+  <!---->
   <title>Acceuil</title>
 </head>
 <body>
-<?php include 'navbar.php';?>
+  <script src="js/script1.js"></script>
+  <?php include 'navbar.php';?>
+  <div class="container" >
+    <div class="cadre">
+      <h1>Bienvenue !</h1>
+      <p> La base de donnée Guns and Roses regroupe des informations sur les artistes aillant fait parti du
+          célèbre groupe. Vous y trouverais également la liste des albums. Vous être libre d'ajouter, modifier
+          ou supprimer un poste. <br/>Bonne visite sur notre site !
+      </p>
 
-<div class="container" >
-  <div class="cadre">
-    <h1>Bienvenue !</h1>
-    <p> La base de donnée Guns and Roses regroupe des informations sur les artistes aillant fait parti du
-        célèbre groupe. Vous y trouverais également la liste des albums. Vous être libre d'ajouter, modifier
-        ou supprimer un poste. <br/>Bonne visite sur notre site !
-    </p>
-
-      <button class="button" href="#">Effectuer une recherche</button>
-      <a href="form_artiste.html.php"><button class="button">Ajouter un artiste</button></a>
-      <button class="button">Ajouter un album</button>
+        <button class="button" href="#">Effectuer une recherche</button>
+        <a href="form_artiste.html.php"><button class="button">Ajouter un artiste</button></a>
+        <button class="button">Ajouter un album</button>
+    </div>
   </div>
-</div>
-<?php include 'footer.php' ?>
+  <?php include 'footer.php' ?>
 </body>
 </html>

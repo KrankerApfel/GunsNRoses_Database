@@ -1,7 +1,7 @@
 <?php
 echo '<div class="logo_home">';
 echo '	<div class="logo_home">
-	   <a id="header" href="index.php.html"><img src="img/logo.png" id="slash" alt="Acceuil"/></a>
+	   <a id="header" href="index.html.php"><img src="img/logo.png" id="slash" alt="Acceuil"/></a>
     </div>';
 echo '</div>';
 echo '<div class="navbar">';

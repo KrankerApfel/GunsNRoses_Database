@@ -1,3 +1,7 @@
+body{
+	background: url(img/pixel_tv.gif);
+	background-repeat: repeat;
+}
 .logo_home {
 	max-width:600px;
 	padding:0em;

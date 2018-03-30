@@ -1,6 +1,7 @@
 <html>
 <body>
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
+
 <?php
 include 'navbar.php';
 include 'functions.php';
@@ -24,11 +25,12 @@ if (valideForm($_GET, $tab)) {
       if($val =="") $val = "non renseigné";
   	  echo "$key: $val";
   	  echo "</li>";
+      $array["$key"] = $val;
     }
 	}
 	echo "</ul>";
-
   echo '</div></div>';
+  //insertRow($array);
 
 }
 else {

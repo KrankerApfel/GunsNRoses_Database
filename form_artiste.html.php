@@ -6,6 +6,7 @@
 	<title>Formulaire - artiste</title>
 </head>
 <body>
+  <script src="js/script1.js"></script>
   <?php include 'navbar.php';?>
   <div class="container">
     <div class="cadre">

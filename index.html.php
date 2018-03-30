@@ -19,6 +19,14 @@
           célèbre groupe. Vous y trouverais également la liste des albums. Vous être libre d'ajouter, modifier
           ou supprimer un poste. <br/>Bonne visite sur notre site !
       </p>
+      <hr/>
+      <p> En bonus, petite compile des meilleures musiques des GnR, mais aussi de ce qu'on pu faire les différents artistes
+        dans leurs carrière solo ou avec d'autre groupe. (Attention Slash à légèrement monopolisé la playlist ❤).
+      <p>
+
+      <p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLI-17bZb2mhj4D_ufbwwoWvuC_D4C2Oa6" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </p>
 
         <button class="button" href="#">Effectuer une recherche</button>
         <a href="form_artiste.html.php"><button class="button">Ajouter un artiste</button></a>

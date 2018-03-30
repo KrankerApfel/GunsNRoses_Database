@@ -21,7 +21,7 @@ function valideForm(&$method, $tabCles) {
  * @return array tableau associatif représentant un enregistrement d'une table passé en paramètre
  * TODO Brice
  */
-function getRowByID(string $table,string $id) {return true;}
+function getRowByID(string $table,int $id) {return true;}
   /**
    * deleteRowByID
    * @param string $table
@@ -29,7 +29,7 @@ function getRowByID(string $table,string $id) {return true;}
    * @return array supprime un enregistrement d'une table passé en paramètre
    * TODO Brice
    */
-function deleteRowByID(string $table,string $id) {return true;}
+function deleteRowByID(string $table,int $id) {return true;}
 
   /**
    * createPost

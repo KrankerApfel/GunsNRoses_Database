@@ -1,10 +1,33 @@
 BUGS :
 
 - Header : quand on rezize et qu'on lance l'animation, elle ne s'effectue pas correctement
+- Header : il faudrait l'afficher sur toute les page mais que l'animation ne s'execute que la            première fois qu'on va sur le site
+- Navbar : changer le lien active quand on clique pour changer de passe
+- Body : impossible de changer le background via le css
 
 TODO LIST :
-- quel type dans le formulaire pour la durée de l'album ?
-- albumManager.php pour donner la liste des albums au formulaire artiste
-- instrumentManager.php pour donner la liste des instrument au formulaire artiste
+** amélioration non demandé **
+- ajouter image et description à la BDD
+- bouton 'effectuer une recherche' propose d'effectué une requête et de l'affiché dans une page
 - upload d'image possible avec la méthode post dans formulaire
-- validForm()
+
+** important **
+>>> pour le formulaire 
+(Tahina)
+- quel type dans le formulaire pour la durée de l'album ?
+- liste des albums pour le formulaire artiste
+- liste des instrument pour le formulaire artiste
+
+>>> Dans le script functions.php (ensemble de fonctions utiles pour simplifié tout):
+* Brice : 
+  - coder getRowByID(string $table, int $id) qui retourne un tableau associatif représentant un     enregistrement d'une table passé en paramètre
+  - coder function deleteRowByID(string $table,int $id) qui supprime un enregistrement d'une         table passé en paramètre
+
+* Abdelaziz :
+  - coder insertRow(string $table,array $row) qui permet d'insérer un nouvelle enregistrement     dans une table choisit en paramètre
+  - coder updateRow(string $table,array $row) qui permet de mettre à jour un enregistrement dans     une table choisit en paramètre
+
+>>> Javascript : 
+* [insérer un volontaire] :
+  - bouton 'supprimer' execute la fonction deleteRowByID()
+  - bouton 'modifier' execute la fonction updateRow()

@@ -1,5 +1,4 @@
 <?php
-
 echo '<div class="logo_home">
 	   <a id="header" href="index.php.html"><img src="img/logo.png" id="slash" alt="Acceuil"/></a>
      </div>';

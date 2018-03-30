@@ -17,7 +17,7 @@
 
       <button class="button" href="#">Effectuer une recherche</button>
       <a href="form_artiste.html.php"><button class="button">Ajouter un artiste</button></a>
-      <button class="button">Ajouter un album</button>
+      <a href="form_album.html.php"><button class="button">Ajouter un album</button></a>
   </div>
 </div>
 <?php include 'footer.php' ?>

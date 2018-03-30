@@ -6,7 +6,7 @@ echo '<div class="navbar">';
 echo "<ul>";
 echo '<li><a class="active" href="index.html.php">Acceuil</a></li>
       <li><a href="artiste.html.php">Artistes</a></li>
-      <li><a href="#">Albums</a></li>';
+      <li><a href="album.html.php">Albums</a></li>';
 echo "</ul>";
 echo "</div>";
 ?>

@@ -6,7 +6,10 @@
 	<title>Formulaire - album</title>
 </head>
 <body>
-  <?php include 'navbar.php';?>
+  <?php include 'navbar.php';
+        include 'form_list.php';
+  ?>
+
   <div class="container">
     <div class="cadre">
       <form action="form_album.php" method="get" id="alb_form">
@@ -25,7 +28,7 @@
 
             <tr>
               <th>Durée*</th>
-              <td><input type="text" name="duree" width="50%" required></td>
+              <td><input type="time" step="2" name="duree" width="50%" required></td>
             </tr>
 
             <tr>
@@ -40,10 +43,7 @@
 
             <tr>
               <th>Genre</th>
-              <td>
-                    <input type="radio" name="genre" value="Heavy metal"> Heavy metal
-                    <input type="radio" name="genre" value="Rock"> Rock
-              </td>
+              <td><?php displayMusicStyle()?></td>
             </tr>
 
             <tr>

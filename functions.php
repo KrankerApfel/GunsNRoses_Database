@@ -40,7 +40,7 @@ function deleteRowByID(string $table,int $id) {return true;}
    */
   function createPost(array $tab, $type) {
     if ($type == "artiste" ){
-      $statut =($tab['art_dateMort'] != "none")?$tab['art_dateMort']: "vivant";
+      $statut =($tab['art_dateMort'] != "NULL")?$tab['art_dateMort']: "vivant";
       echo '<div class="container" >
             <div class="cadre">
               <button class="button" href="#">Modifier</button>

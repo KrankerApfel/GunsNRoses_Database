@@ -14,10 +14,11 @@ TODO LIST :
 ** important **
 >>> pour le formulaire 
 (Tahina)
-- quel type dans le formulaire pour la durée de l'album ?
-- liste des albums pour le formulaire artiste
-- liste des instrument pour le formulaire artiste
-
+- quel type dans le formulaire pour la durée de l'album ? DONE
+- liste des albums pour le formulaire artiste DONE
+- liste des instrument pour le formulaire artiste DONE
+- displayAlbumsTitles() : récupérer la liste des titre dans une requête PGSQL
+- envoie d'image
 >>> Dans le script functions.php (ensemble de fonctions utiles pour simplifié tout):
 * Brice : 
   - coder getRowByID(string $table, int $id) qui retourne un tableau associatif représentant un     enregistrement d'une table passé en paramètre

@@ -17,15 +17,22 @@ if (valideForm($_GET, $tab)) {
         <a href="#"><button class="button">Modifier</button></a>
         <button class="button">Supprimer</button>
         ';
-	echo "<h3>Tout s'est effectué avec succés !<h3>";
+	echo "<h3>Tout s'est effectué avec succés !</h3>";
 	echo "<ul>";
 	foreach($_GET as $key=> $val) {
 	  if(! is_array($val)){
       echo "<li>";
       if($val =="") $val = "non renseigné";
-  	  echo "$key: $val";
+  	  echo "<b>$key :</b> $val";
   	  echo "</li>";
       $array["$key"] = $val;
+    }
+    else {
+      echo"<li><b>$key :</b><ul> ";
+      foreach ($val as $type) {
+       echo"<li>$type </li>\n";
+      }
+        echo"</ul></li>";
     }
 	}
 	echo "</ul>";

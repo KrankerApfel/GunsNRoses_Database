@@ -7,7 +7,8 @@
 </head>
 <body>
   <script src="js/script1.js"></script>
-  <?php include 'navbar.php';?>
+  <?php include 'navbar.php';
+        include 'form_list.php'; ?>
   <div class="container">
     <div class="cadre">
       <form action="form_artiste.php" method="get" id="art_form">
@@ -45,22 +46,14 @@
               <th>Instrument*</th>
         			<td>
                 <select size="3" name="instrument" required>
-                  <option value='guitare' name='guitare'>guitare</option>
-                  <option value='piano' name='piano'>piano</option>
-                  <option value='chant' name='chant'>chant</option>
-
-                      <!--include 'instrumentManager.php'-->
+                  <?php displayInstrument(); ?>
                 </select>
         			</td>
         		</tr>
 
             <tr>
               <th>Album.s</th>
-              <td>
-                <input type="checkbox" name="album[]" value="Classique"> album 1
-                <input type="checkbox" name="album[]" value="Jazz"> album 2
-                  <!--include 'instrumentManager.php'-->
-              </td>
+              <td><?php displayAlbumsTitles();?></td>
             </tr>
 
             <tr>

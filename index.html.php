@@ -26,7 +26,7 @@
       <hr/>
       <p> En bonus, petite compile des meilleures musiques des GnR, mais aussi de ce qu'on pu faire les différents artistes
         dans leurs carrière solo ou avec d'autre groupe. Certains artistes présenté dans cette playliste n'ont jamais réalisé
-        d'album avec le groupe mais on partipé à des lives avec eux, ou sont des amis proches. (Attention Slash à légèrement monopolisé la playlist ❤).
+        d'album avec le groupe mais on partipé à des lives avec eux, ou sont des amis proches. (Attention Slash et Buckethead ont légèrement monopolisé la playlist ❤).
       <p>
       <p>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLI-17bZb2mhj4D_ufbwwoWvuC_D4C2Oa6" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

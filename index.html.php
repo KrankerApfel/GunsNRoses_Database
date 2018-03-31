@@ -22,8 +22,12 @@
       <a href="#"><button class="button">Effectuer une recherche</button></a>
       <a href="form_artiste.html.php"><button class="button">Ajouter un artiste</button></a>
       <a href="form_album.html.php"><button class="button">Ajouter un album</button></a>
+  </div>
+  </div>
 
-      <hr/>
+  <div class="container" >
+    <div class="cadre">
+      <h1>100 musiques à découvrir</h1>
       <p> En bonus, petite compile des meilleures musiques des GnR, mais aussi de ce qu'on pu faire les différents artistes
         dans leurs carrière solo ou avec d'autre groupe. Certains artistes présenté dans cette playliste n'ont jamais réalisé
         d'album avec le groupe mais on partipé à des lives avec eux, ou sont des amis proches. (Attention Slash et Buckethead ont légèrement monopolisé la playlist ❤).
@@ -31,9 +35,15 @@
       <p>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLI-17bZb2mhj4D_ufbwwoWvuC_D4C2Oa6" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </p>
+</div>
+</div>
 
-  </div>
-  </div>
+<div class="container" >
+  <div class="cadre">
+    <h1>Histoire du groupe</h1>
+
+</div>
+</div>
   <?php include 'footer.php' ?>
 </body>
 </html>

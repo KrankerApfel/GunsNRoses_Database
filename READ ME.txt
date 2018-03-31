@@ -37,3 +37,4 @@ IDEAS :
 	- i think using it's better to use javascript to include parts of code in the html pages for two reasons:
 		1) yes using js to manipulate html can be a pain in the ass but it's more appropriate because it deals with html elements like objects which is better than just directly writing code on the html page
 		2) when using js we will not be forced to use the .php extension, which is a problem when we try to put the actual website on github server 
+  -omg i really want to see the look on Brice's face when he'll findout we did all this already HHHHHHHHHHHHHHHHHHHHHHHHHHHHH

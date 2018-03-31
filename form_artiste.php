@@ -1,7 +1,5 @@
 <html>
 <body>
-<link rel="stylesheet" href="css/style.css" type="text/css"/>
-
 <?php
 include 'navbar.php';
 include 'functions.php';

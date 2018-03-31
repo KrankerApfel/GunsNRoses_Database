@@ -1,9 +1,8 @@
 <?php
-echo '<div class="logo_home">';
+echo '<script src="js/script1.js"></script>';
 echo '	<div class="logo_home">
 	   <a id="header" href="index.html.php"><img src="img/logo.png" id="slash" alt="Acceuil"/></a>
     </div>';
-echo '</div>';
 echo '<div class="navbar">';
 echo "<ul>";
 echo '<li><a class="active" href="index.html.php">Acceuil</a></li>

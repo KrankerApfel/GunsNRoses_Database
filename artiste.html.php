@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Artistes</title>
-</head>
-<body>
-<?php include 'navbar.php';?>
+<?php 
+  $title = "Artiste";
+  include 'navbar.php';?>
 
 <div class="container" >
   <div class="cadre">

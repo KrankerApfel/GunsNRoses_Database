@@ -85,5 +85,5 @@ function mouseWheel(event){
 	X_gunspos += event.delta/10;
 }
 function mouseDragged(event){
-	X_gunspos = mouseX;
+	X_gunspos = mouseX*2;
 }

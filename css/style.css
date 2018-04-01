@@ -1,3 +1,6 @@
+body{
+	background-image: url("../img/pattern.png");
+}
 .logo_home {
 	padding:0em;
 	margin:1em auto;

@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Albums</title>
-</head>
-<body>
-<?php include 'navbar.php';?>
+<?php 
+  $title = "Album";
+  include 'navbar.php';?>
 
 <div class="container" >
   <div class="cadre">

@@ -1,7 +1,6 @@
 BUGS :
 
-- Header : quand on rezize et qu'on lance l'animation, elle ne s'effectue pas correctement
-- Header : il faudrait l'afficher sur toute les page mais que l'animation ne s'execute que la            première fois qu'on va sur le site
+- Header : les couleurs sont moches
 - Navbar : changer le lien active quand on clique pour changer de passe
 - Body : impossible de changer le background via le css
 

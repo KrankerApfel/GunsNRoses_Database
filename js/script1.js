@@ -11,15 +11,13 @@ var move = 0;
 var titleInAction = 0;
 var DBtextcount = -50;
 
-function preload(){
+function setup(){
+	logoX = -width/2, logoY = -height/2;
+	X_npos = -10-width, Y_npos = 100 , X_gunspos = 0, Y_gunspos = 0;
 	corvinus_skyline_font = loadFont("fonts/Corvinus Skyline ICG.ttf");
 	huskystash = loadFont("fonts/husky stash.ttf");
-	X_npos = -10-width, Y_npos = 100 , X_gunspos = 0, Y_gunspos = 0;
-	logoX = -width/2, logoY = -height/2;
-}
-function setup(){
 	BG_COLOR = color(217,205,145);
-	var header = createCanvas(windowWidth- windowWidth/8,windowHeight/5);
+	var header = createCanvas(windowWidth- windowWidth/4,windowHeight/5);
 	header.parent('header');
 	background(BG_COLOR);
 }
@@ -28,18 +26,18 @@ function draw(){
 	push();
 		translate(0,height/2);
 				textAlign(RIGHT,CENTER);
-				textSize(height+height/2+height/4+height/8);
+				textSize(height+height/2+height/4+height/8+X_gunspos/5);
 				textFont(corvinus_skyline_font);
 				fill(217,159,108,abs(X_gunspos/5));
 				text(gunNroses,X_gunspos,Y_gunspos);DBtextcount++;
 				textAlign(RIGHT,CENTER);
-				textSize(height+height/2+height/4);
+				textSize(height+height/2+height/4+X_gunspos);
 				textFont(corvinus_skyline_font);
 				fill(191,96,75,abs(X_gunspos/5));
 				text(gunNroses,X_gunspos,Y_gunspos);DBtextcount++;
 				textAlign(RIGHT,CENTER);
 				textSize(height+height/2+X_gunspos/10);
-				textFont(corvinus_skyline_font);
+				textFont(corvinus_skyline_font)
 				fill(166,60,60,abs(X_gunspos/5));
 				text(gunNroses,X_gunspos,Y_gunspos);DBtextcount++;
 		textAlign(RIGHT,CENTER);
@@ -48,10 +46,10 @@ function draw(){
 		fill(64,20,44);
 		titleInAction = width/2+textWidth(gunNroses);
 		text(gunNroses,X_gunspos,Y_gunspos);
-		X_gunspos+=windowWidth/120 - X_gunspos/100;
+		X_gunspos+=width/100 - X_gunspos/100;
 		move+=6;
 		if(DBtextcount>=1){
-			fill(141,166,129,abs(move/3));
+			fill(217,205,145,abs(move/3));
 			textSize(height/2)				
 			textFont(huskystash);
 			textAlign(LEFT);
@@ -81,5 +79,8 @@ function draw(){
 	pop();
 }
 function windowResized(){
-	resizeCanvas(windowWidth- windowWidth/16,windowHeight/5);
+	resizeCanvas(windowWidth- windowWidth/4,windowHeight/5);
+}
+function mouseWheel(event){
+	X_gunspos += event.delta/10;
 }

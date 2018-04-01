@@ -1,102 +1,85 @@
-var BG_COLOR = 255;
+var BG_COLOR;
 var HEAD_TRANSPARENCY = 255;
-var edition_font;
-var corvinus_skyline_font,against_font;
+var corvinus_skyline_font,huskystash;
 var Y_gunspos,X_gunspos,X_npos,Y_npos,logoX,logoY;
 var HEAD_SIZE = 300;
 var lineW = 0;
 var gnrLOGO;
 var nothingindice = 0;
+var gunNroses = "GUNS N'ROSES";
+var move = 0;
+var titleInAction = 0;
+var DBtextcount = -50;
 
 function preload(){
-	edition_font = loadFont("fonts/edition.ttf");
 	corvinus_skyline_font = loadFont("fonts/Corvinus Skyline ICG.ttf");
-	against_font = loadFont("fonts/againts.otf");
-	gnrLOGO = loadImage("img/GunsNRoses-Logo.png");
-	X_npos = -10-width, Y_npos = 100 , X_gunspos =- width, Y_gunspos = 100;
+	huskystash = loadFont("fonts/husky stash.ttf");
+	X_npos = -10-width, Y_npos = 100 , X_gunspos = 0, Y_gunspos = 0;
 	logoX = -width/2, logoY = -height/2;
 }
-
-function setup() {
-	var header = createCanvas(windowWidth,windowHeight/2);
+function setup(){
+	BG_COLOR = color(217,205,145);
+	var header = createCanvas(windowWidth- windowWidth/8,windowHeight/5);
 	header.parent('header');
 	background(BG_COLOR);
 }
-
 function draw(){
-		push();
-			//GUNS  ROSES
-			background(BG_COLOR);
-			translate(-width/2,height/2);
-			stroke(50);
-			strokeWeight(lineW);
-			line(0,0,width*2,0);
-			stroke(70);
-			strokeWeight(lineW-30);
-			line(0,0,width*2,0);
-			stroke(90);
-			strokeWeight(lineW-60);
-			line(0,0,width*2,0);
-			stroke(110);
-			strokeWeight(lineW-90);
-			line(0,0,width*2,0);
-			stroke(130);
-			strokeWeight(lineW-120);
-			line(0,0,width*2,0);
-			stroke(150);
-			strokeWeight(lineW-150);
-			line(0,0,width*2,0);
-		pop();
-			if (X_npos > width && X_gunspos > width) {
-				textSize(500);
+	background(BG_COLOR);
+	push();
+		translate(0,height/2);
+				textAlign(RIGHT,CENTER);
+				textSize(height+height/2+height/4+height/8);
 				textFont(corvinus_skyline_font);
-				textAlign(CENTER);
-				text("",X_npos-width/2,Y_npos+2*height/3);
-				if(nothingindice % 80 > 10){
-					fill(0,0,0);
+				fill(217,159,108,abs(X_gunspos/5));
+				text(gunNroses,X_gunspos,Y_gunspos);DBtextcount++;
+				textAlign(RIGHT,CENTER);
+				textSize(height+height/2+height/4);
+				textFont(corvinus_skyline_font);
+				fill(191,96,75,abs(X_gunspos/5));
+				text(gunNroses,X_gunspos,Y_gunspos);DBtextcount++;
+				textAlign(RIGHT,CENTER);
+				textSize(height+height/2+X_gunspos/10);
+				textFont(corvinus_skyline_font);
+				fill(166,60,60,abs(X_gunspos/5));
+				text(gunNroses,X_gunspos,Y_gunspos);DBtextcount++;
+		textAlign(RIGHT,CENTER);
+		textSize(height);
+		textFont(corvinus_skyline_font);
+		fill(64,20,44);
+		titleInAction = width/2+textWidth(gunNroses);
+		text(gunNroses,X_gunspos,Y_gunspos);
+		X_gunspos+=windowWidth/120 - X_gunspos/100;
+		move+=6;
+		if(DBtextcount>=1){
+			fill(141,166,129,abs(move/3));
+			textSize(height/2)				
+			textFont(huskystash);
+			textAlign(LEFT);
+			text("D",textWidth(""),0);
+			if (DBtextcount >=50) {
+				text("a",textWidth("D"),0);
+				if (DBtextcount >=100) {
+					text("t",textWidth("Da"),0);
+					if (DBtextcount >=150) {
+						text("a",textWidth("Dat"),0);
+						if (DBtextcount >=200) {
+							text(" B",textWidth("Data"),0);
+							if (DBtextcount >=250) {
+								text("a",textWidth("Data B"),0);
+								if (DBtextcount >=300) {
+									text("s",textWidth("Data Ba"),0);
+									if (DBtextcount >=350) {
+										text("e",textWidth("Data Bas"),0);
+									}
+								}
+							}
+						}
+					}
 				}
-				else{
-					fill(0,0,0);
-				}
-				nothingindice++;
-
-			}
-			else{
-				lineW+=2;
-				X_gunspos+=10;
-				X_npos+=10;
-			}
-		push();
-			translate(-width/2,height/2);
-			textSize(HEAD_SIZE);
-			textFont(corvinus_skyline_font);
-			textAlign(CENTER);
-			fill( 192, 57, 43 ,HEAD_TRANSPARENCY);
-			noStroke();
-			text("GUNS   ROSES",X_gunspos,Y_gunspos);
-			//	 N
-			textSize(HEAD_SIZE);
-			textFont(corvinus_skyline_font);
-			textAlign(CENTER);
-			fill( 241, 196, 15 ,HEAD_TRANSPARENCY);
-			noStroke();
-			text("N'",X_npos,Y_npos);
-		pop();
-		if (X_npos > width && X_gunspos > width) {
-			if(nothingindice < 10){
-				fill(255);
-				rect(-200,-200,2*width,2*height);
-			}
-			else{
-				push();
-				translate(13*width/16,12*height/16);
-				fill(255);
-				rotate(-PI/12);
-				textSize(150);
-				textFont(against_font);
-				text("Data Base",width/40,-height/20);
-				pop();
-				if (nothingindice > 20) {noLoop();}
 			}
 		}
+	pop();
+}
+function windowResized(){
+	resizeCanvas(windowWidth- windowWidth/16,windowHeight/5);
 }

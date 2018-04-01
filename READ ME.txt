@@ -8,7 +8,7 @@ BUGS :
 TODO LIST :
 ** amélioration non demandé **
 - ajouter image et description à la BDD
-- bouton 'effectuer une recherche' propose d'effectué une requête et de l'affiché dans une page
+- bouton 'effectuer une recherche' propose d'effectué une requête et de l'affiché dans une pages
 - upload d'image possible avec la méthode post dans formulaire
 
 ** important **

@@ -1,5 +1,4 @@
 .logo_home {
-	max-width:600px;
 	padding:0em;
 	margin:1em auto;
 	text-align:center;
@@ -13,8 +12,6 @@
 }
 
 .logo_home canvas{/*LE canvas*/
-	max-width:600px;
-	max-height: 200px;
 	padding:0em;
 	margin:1em auto;
 	text-align:left;

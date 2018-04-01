@@ -6,7 +6,7 @@ echo '  <link rel="stylesheet" href="css/style.css" type="text/css" />
   ';
 echo '<script src="js/script1.js"></script>';
 echo '	<div class="logo_home">
-	   <a id="header" href="index.html.php"><img src="img/logo.png" id="slash" alt="Acceuil"/></a>
+	   <p id="header"></p>
     </div>';
 echo '<div class="navbar">';
 echo "<ul>";

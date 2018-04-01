@@ -46,27 +46,27 @@ function draw(){
 		fill(64,20,44);
 		titleInAction = width/2+textWidth(gunNroses);
 		text(gunNroses,X_gunspos,Y_gunspos);
-		X_gunspos+=width/100 - X_gunspos/100;
+		X_gunspos+=width/110 - X_gunspos/100;
 		move+=6;
-		if(DBtextcount>=1){
+		if(X_gunspos>10){
 			fill(217,205,145,abs(move/3));
 			textSize(height/2)				
 			textFont(huskystash);
 			textAlign(LEFT);
 			text("D",textWidth(""),0);
-			if (DBtextcount >=50) {
+			if (X_gunspos >=width/8) {
 				text("a",textWidth("D"),0);
-				if (DBtextcount >=100) {
+				if (X_gunspos >=2*width/8) {
 					text("t",textWidth("Da"),0);
-					if (DBtextcount >=150) {
+					if (X_gunspos >=3*width/8) {
 						text("a",textWidth("Dat"),0);
-						if (DBtextcount >=200) {
+						if (X_gunspos >=4*width/8) {
 							text(" B",textWidth("Data"),0);
-							if (DBtextcount >=250) {
+							if (X_gunspos >=5*width/8) {
 								text("a",textWidth("Data B"),0);
-								if (DBtextcount >=300) {
+								if (X_gunspos >=6*width/8) {
 									text("s",textWidth("Data Ba"),0);
-									if (DBtextcount >=350) {
+									if (X_gunspos >=7*width/8) {
 										text("e",textWidth("Data Bas"),0);
 									}
 								}
@@ -79,8 +79,11 @@ function draw(){
 	pop();
 }
 function windowResized(){
-	resizeCanvas(windowWidth- windowWidth/4,windowHeight/5);
+	resizeCanvas(windowWidth-windowWidth/4,windowHeight/5);
 }
 function mouseWheel(event){
 	X_gunspos += event.delta/10;
+}
+function mouseDragged(event){
+	X_gunspos = mouseX;
 }

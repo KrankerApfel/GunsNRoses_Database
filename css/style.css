@@ -1,5 +1,7 @@
 body{
-	/*background-image: url("../img/pattern.png");you can activate this if you want wut it's so ugly*/
+	color: #fee9fc;
+
+	background-image: url("../img/zenBG-2.png");/*you can activate this if you want wut it's so ugly*/
 }
 .logo_home {
 	padding:0em;
@@ -73,7 +75,6 @@ body{
 	}
 
 .container {
-	color: #fee9fc;
 	max-width:1000px;
 	padding:0px 0px 0px 0px;
 	margin:0em auto;
@@ -108,7 +109,6 @@ body{
 .footer {
 	 position:relative;
    background-color: #333;
-   color: #fee9fc;
 	 text-align: center;
 	 max-width:1000px;
 	 margin:0em auto;

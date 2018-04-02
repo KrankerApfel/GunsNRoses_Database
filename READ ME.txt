@@ -16,16 +16,16 @@ TODO LIST :
 - quel type dans le formulaire pour la durée de l'album ? DONE
 - liste des albums pour le formulaire artiste DONE
 - liste des instrument pour le formulaire artiste DONE
-- displayAlbumsTitles() : récupérer la liste des titre dans une requête PGSQL (abdelaziz thinks that you already did enough stuff) 
+- displayAlbumsTitles() : récupérer la liste des titre dans une requête PGSQL (abdelaziz thinks that you already did enough stuff | yes but I do nothing with database :'( ) 
 - envoie d'image
 >>> Dans le script functions.php (ensemble de fonctions utiles pour simplifié tout):
 * Brice : 
-  - coder getRowByID(string $table, int $id) qui retourne un tableau associatif représentant un     enregistrement d'une table passé en paramètre
-  - coder function deleteRowByID(string $table,int $id) qui supprime un enregistrement d'une         table passé en paramètre
+  - coder getRowByID(string $table, int $id) qui retourne un tableau associatif représentant un enregistrement d'une table passé en paramètre
+  - coder function deleteRowByID(string $table,int $id) qui supprime un enregistrement d'une table passé en paramètre
 
 * Abdelaziz :
-  - coder insertRow(string $table,array $row) qui permet d'insérer un nouvelle enregistrement     dans une table choisit en paramètre
-  - coder updateRow(string $table,array $row) qui permet de mettre à jour un enregistrement dans     une table choisit en paramètre
+  - coder insertRow(string $table,array $row) qui permet d'insérer un nouvelle enregistrement dans une table choisit en paramètre
+  - coder updateRow(string $table,array $row) qui permet de mettre à jour un enregistrement dans une table choisit en paramètre
 
 >>> Javascript : 
 * [insérer un volontaire] :

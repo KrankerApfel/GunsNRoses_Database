@@ -13,7 +13,7 @@
 
 .logo_home canvas{/*LE canvas*/
 	padding:0em;
-	margin:1em auto;
+	margin: 1em auto;
 	text-align:left;
 }
 
@@ -95,6 +95,7 @@
 	max-width: 250px;
 	margin:Oem;
 	padding:0em;
+	position:relative;
 }
 .post {
 	display: inline-flex;

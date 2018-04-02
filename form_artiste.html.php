@@ -6,7 +6,9 @@
 </head>
 <body>
   <script src="js/script1.js"></script>
-  <?php include 'navbar.php';
+
+  <?php $title = "Artiste"; 
+        include 'navbar.php';
         include 'form_list.php'; ?>
   <div class="container">
     <div class="cadre">

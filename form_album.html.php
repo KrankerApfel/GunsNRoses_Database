@@ -5,7 +5,8 @@
 	<title>Formulaire - album</title>
 </head>
 <body>
-  <?php include 'navbar.php';
+  <?php  $title = "Album"; 
+        include 'navbar.php';
         include 'form_list.php';
   ?>
 

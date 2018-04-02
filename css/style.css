@@ -1,10 +1,12 @@
 body{
 	/*background-image: url("../img/pattern.png");you can activate this if you want wut it's so ugly*/
+	background-color: rgb(255);
 }
 .logo_home {
 	padding:0em;
 	margin:1em auto;
 	text-align:center;
+	position: relative;
 }
 
 .logo_home img { /*img remplacer par canvas*/

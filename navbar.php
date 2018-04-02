@@ -13,14 +13,14 @@
 	<div class="logo_home">
 	   <p id="header"></p>
     </div>
-<div class="navbar">
-	<?php
-	$tab = array("Acceuil"=>"","Artiste"=>"","Album"=>"");
-	$tab[$title] = "active";
-	?>
-<ul>
-	<li><a class=<?php echo ("'".$tab["Acceuil"]."'");?> href="index.html.php">Acceuil</a></li>
-    <li><a class=<?php echo ("'".$tab["Artiste"]."'");?> href="artiste.html.php">Artiste</a></li>
-    <li><a class=<?php echo ("'".$tab["Album"]."'");?> href="album.html.php">Album</a></li>
-</ul>
-</div>
+	<div class="navbar">
+		<?php
+		$tab = array("Acceuil"=>"","Artiste"=>"","Album"=>"");
+		$tab[$title] = "active";
+		?>
+	<ul>
+		<li><a class=<?php echo ("'".$tab["Acceuil"]."'");?> href="index.html.php">Acceuil</a></li>
+	    <li><a class=<?php echo ("'".$tab["Artiste"]."'");?> href="artiste.html.php">Artiste</a></li>
+	    <li><a class=<?php echo ("'".$tab["Album"]."'");?> href="album.html.php">Album</a></li>
+	</ul>
+	</div>

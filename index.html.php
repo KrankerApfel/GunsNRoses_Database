@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Acceuil</title>
-</head>
-<body>
-  <?php include 'navbar.php';?>
-  <div class="container" >
+<?php
+	$title = "Acceuil"; 
+	include 'navbar.php';?>
+
+	<div class="container" >
     <div class="cadre">
       <h1>Bienvenue !</h1>
       <p> La base de donnée Guns and Roses regroupe des informations sur les artistes aillant fait parti du

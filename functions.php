@@ -1,5 +1,5 @@
 <?php
-function connexion(string $dbHost, string $dbName, string $dbUser, string $dbPassword) {
+function connexion() {
     include "connex.php";
     $strConnex="host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
     $ptrDB = pg_connect($strConnex);
@@ -90,7 +90,9 @@ function deleteRowByID(string $table,int $id) {return true;}
      * @return boolean si oui ou non l'insertion à fonctionnée
      * TODO Abdelaziz
      */
-  function insertRow(string $table,array $row){return true;}
+  function insertRow(string $table,array $row){
+
+    return true;}
 
     /**
      * updateRow
@@ -101,6 +103,5 @@ function deleteRowByID(string $table,int $id) {return true;}
      * TODO Abdelaziz
      */
   function updateRow(string $table,array $row)  {return true;}
-
 
  ?>

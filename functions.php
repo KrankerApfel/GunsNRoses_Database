@@ -1,6 +1,6 @@
 <?php
 function connexion() {
-    include "connex2.php";
+    include "connex1.php";
     $strConnex="host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
     $ptrDB = pg_connect($strConnex);
     return $ptrDB;

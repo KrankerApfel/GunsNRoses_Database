@@ -1,5 +1,5 @@
 <?php
-function connexion(string $dbHost, string $dbName, string $dbUser, string $dbPassword) {
+function connexion() {
     include "connex.php";
     $strConnex="host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
     $ptrDB = pg_connect($strConnex);
@@ -17,19 +17,47 @@ function valideForm(&$method, $tabCles) {
 /**
  * getRowByID
  * @param string $table
-*  @param string $id
+*  @param int $id
  * @return array tableau associatif représentant un enregistrement d'une table passé en paramètre
  * TODO Brice
  */
-function getRowByID(string $table,int $id) {return true;}
+function getRowByID(string $table,int $id) {
+    $ptrDB = connexion();
+    $i = substr($table, 0, 3); 
+    $i .= "_id"; 
+    $query = "SELECT * FROM $table WHERE $i = $1";
+
+    $result = pg_prepare($ptrDB, "reqprep", $query);
+    $ptrQuery = pg_execute($ptrDB, "reqprep", array($id));
+
+    if (isset($ptrQuery))
+        $resu = pg_fetch_assoc($ptrQuery);
+
+        if (empty($resu))
+            $resu =  array("message" => "Identifiant non valide : $id");
+
+    pg_free_result($ptrQuery);
+    pg_close($ptrDB);
+    return $resu;
+  }
   /**
    * deleteRowByID
    * @param string $table
-  *  @param string $id
+  *  @param int $id
    * @return array supprime un enregistrement d'une table passé en paramètre
    * TODO Brice
    */
-function deleteRowByID(string $table,int $id) {return true;}
+function deleteRowByID(string $table,int $id) {
+    $ptrDB = connexion();
+    $i = substr($table, 0, 3); 
+    $i .= "_id"; 
+    $query = "DELETE FROM $table WHERE $i = $1";    
+
+    pg_prepare($ptrDB, "reqprep", $query);
+
+    $ptrQuery = pg_execute($ptrDB, "reqprep", array($id));
+    pg_free_result($ptrQuery);
+}
 
   /**
    * createPost
@@ -40,7 +68,7 @@ function deleteRowByID(string $table,int $id) {return true;}
    */
   function createPost(array $tab, $type) {
     if ($type == "artiste" ){
-      $statut =($tab['art_dateMort'] != "NULL")?$tab['art_dateMort']: "vivant";
+      $statut =(is_null($tab['art_dateMort']))?$tab['art_dateMort']: "vivant";
       echo '<div class="container" >
             <div class="cadre">
               <button class="button" href="#">Modifier</button>

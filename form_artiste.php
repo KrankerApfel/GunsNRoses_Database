@@ -1,6 +1,7 @@
 <html>
 <body>
 <?php
+$title = "Artiste";
 include 'navbar.php';
 include 'functions.php';
 /*

@@ -8,9 +8,9 @@
 include 'functions.php';
 $type = "artiste";
 $line = [
-    "art_nom" => "Hudson",
-    "art_prenom" => "Saul",
-    "art_pseudo" => "Slash",
+    "art_nom" => "de creation",
+    "art_prenom" => "test",
+    "art_pseudo" => "de poste",
     "art_datenaissance" => "11.06.1997",
     "art_datemort" => "null",
     "art_instrument" => "guitare",
@@ -19,13 +19,15 @@ $line = [
     "image" => "img/slash.jpg",
     ];
 
-   createPost(getRowByID($type,1), $type);
-  createPost(getRowByID($type,3), $type);
+    //TODO requete pour avoir leur id dans l'ordre alphabéthique
+
+   for ($i=1; $i < 22 ; $i++) { // faire en fonction de la taille 
+      createPost(getRowByID($type,$i), $type);
+   }
 
 
-    createPost($line, $type);
-    createPost($line, $type);
-    createPost($line, $type);
+
+    // test
     createPost($line, $type);
 
 

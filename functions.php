@@ -1,6 +1,6 @@
 <?php
 function connexion() {
-    include "connex2.php";
+    include "connex.php";
     $strConnex="host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
     $ptrDB = pg_connect($strConnex);
     return $ptrDB;
@@ -39,7 +39,7 @@ function getRowByID($table, $id) {
 
     pg_free_result($ptrQuery);
     pg_close($ptrDB);
-    
+
     return $resu;
   }
   /**

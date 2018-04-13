@@ -18,9 +18,23 @@ $line = [
     "image" => "img/chinese_democracy.png",
     ];
 
-    createPost($line, $type);
-    createPost($line, $type);
-    createPost($line, $type);
-    createPost($line, $type);
+    $ptrDB = connexion();
+    if(!$ptrDB){ echo "ERROR : Database connexion fail ! ";}
+    else{
+        $ptrQuery = pg_query($ptrDB,"SELECT alb_id FROM album ORDER BY alb_titre");
+
+        if ($ptrQuery) {
+          $id_list = array();
+           while($row = pg_fetch_row($ptrQuery)) {
+             foreach ($row as $elm) {array_push($id_list, $elm);}
+           }
+         }
+
+
+          foreach ($id_list as $id) {
+            createPost(getRowByID($type,$id), $type);
+          }
+
+    }
 
  ?>

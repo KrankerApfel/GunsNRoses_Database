@@ -21,9 +21,25 @@ $line = [
 
     //TODO requete pour avoir leur id dans l'ordre alphabéthique
 
-   for ($i=1; $i < 22 ; $i++) { // faire en fonction de la taille
-      createPost(getRowByID($type,$i), $type);
-   }
+    $ptrDB = connexion();
+    if(!$ptrDB){ echo "ERROR : Database connexion fail ! ";}
+    else{
+        $ptrQuery = pg_query($ptrDB,"SELECT art_id FROM artiste ORDER BY art_nom");
+
+        if ($ptrQuery) {
+          $id_list = array();
+           while($row = pg_fetch_row($ptrQuery)) {
+             foreach ($row as $elm) {array_push($id_list, $elm);}
+           }
+         }
+
+
+          foreach ($id_list as $id) {
+            createPost(getRowByID($type,$id), $type);
+          }
+
+    }
+
 
 
 

@@ -7,7 +7,7 @@ include "functions.php";
       if(!$ptrDB){ echo "ERROR : Database connexion fail ! ";}
       else {
 
-        $requete = "SELECT alb_titre FROM album";
+        $requete = "SELECT alb_titre FROM album ORDER BY alb_sortie";
         $ptrQuery = pg_query($ptrDB,$requete);
         $tab = array ();
 
@@ -17,9 +17,11 @@ include "functions.php";
            }
          }
 
+        echo "<ul  style ='list-style-type : upper-roman'>";
         foreach ($tab as $title) {
-          echo '<input type="checkbox" name="album[]" value="'.$title.'"> '.$title.'';
+          echo '<li><input type="checkbox" name="album[]" value="'.$title.'"> '.$title.'  </li>';
         }
+        echo "</ul'>";
       }
     }
 
@@ -42,12 +44,14 @@ include "functions.php";
            }
          }
        }
-       
+
       // suppression des doublons
       $tab = array_unique($tab);
+      echo "<ul  style ='list-style-type : none'>";
       foreach ($tab as $style) {
-        echo '<input type="checkbox" name="genre[]" value="'.$style.'"> '.$style.' ';
+        echo '<li><input type="checkbox" name="genre[]" value="'.$style.'"> '.$style.' </li>';
       }
+      echo "</ul>";
     }
 
     function displayInstrument() {

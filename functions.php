@@ -20,7 +20,7 @@ function valideForm(&$method, $tabCles) {
  * @param string $table
 *  @param int $id
  * @return array tableau associatif représentant un enregistrement d'une table passé en paramètre
- * TODO Brice
+ * TODO Brice (DONE)
  */
 function getRowByID($table, $id) {
     $ptrDB = connexion();
@@ -44,12 +44,14 @@ function getRowByID($table, $id) {
   }
   /**
    * deleteRowByID
+   * supprime un enregistrement d'une table passé en paramètre
    * @param string $table
   *  @param int $id
-   * @return array supprime un enregistrement d'une table passé en paramètre
-   * TODO Brice
+   * @return array
+   * TODO Brice (BUG)
    */
-function deleteRowByID(string $table,int $id) {
+function deleteRowByID($table, $id) {
+  echo '<h1>OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII</h1>';
     $ptrDB = connexion();
     $i = substr($table, 0, 3);
     $i .= "_id";
@@ -125,6 +127,8 @@ function deleteRowByID(string $table,int $id) {
 
     }
     else if ($type == "album"){
+      $tab['description'] ="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
       echo '<div class="container" >
             <div class="cadre">';
             createButton("update",$type);
@@ -156,7 +160,7 @@ function deleteRowByID(string $table,int $id) {
      * @return boolean si oui ou non l'insertion à fonctionnée
      * TODO Abdelaziz
      */
-     function insertRow(string $table,array $row){
+     function insertRow($table,$row){
          $ptrBD = connexion();/*
            $query = "INSERT INTO artiste VALUES(";
          foreach ($row as $key => $val) {
@@ -242,10 +246,13 @@ function deleteRowByID(string $table,int $id) {
         if ($type =="delete"){
           echo '
           <button class="button" onclick="confirmation()">Supprimer</button>
-          <script>
+          <script type="text/javascript">
               function confirmation() {
                   var res = confirm("Do you really really really want to discard this record ?!");
-                  alert(res);
+                  if (res){
+                    location.reload(true);
+                  }
+
               }
           </script>
           ';

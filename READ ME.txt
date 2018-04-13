@@ -16,7 +16,8 @@ TODO LIST :
 - quel type dans le formulaire pour la durée de l'album ? DONE
 - liste des albums pour le formulaire artiste DONE
 - liste des instrument pour le formulaire artiste DONE
-- displayAlbumsTitles() : récupérer la liste des titre dans une requête PGSQL (abdelaziz thinks that you already did enough stuff | yes but I do nothing with database :'( ) 
+- displayAlbumsTitles() /displayInstrument() / displayMusic styles DONE
+-
 - envoie d'image
 >>> Dans le script functions.php (ensemble de fonctions utiles pour simplifié tout):
 * Brice : 

@@ -1,6 +1,7 @@
 <html>
 <body>
 <?php
+$title = "Acceuil"; 
 include 'navbar.php';
 include 'functions.php';
 /*
@@ -35,7 +36,7 @@ if (valideForm($_GET, $tab)) {
 	}
 	echo "</ul>";
   echo '</div></div>';
-  //insertRow($array);
+  //insertRow($array,$row);
 
 }
 else {

@@ -1,6 +1,6 @@
 <?php
 function connexion() {
-    include "connex.php";
+    include "connex2.php";
     $strConnex="host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
     $ptrDB = pg_connect($strConnex);
     return $ptrDB;
@@ -105,15 +105,12 @@ function deleteRowByID(string $table,int $id) {
       $tab['instrument'] = $instrument;
       $tab['description'] ="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-
-
-
       $statut =(is_null($tab['art_datemort']))? "vivant":" Mort (".$tab['art_datemort'].")";
       echo '<div class="container" >
-            <div class="cadre">
-              <button class="button" href="#">Modifier</button>
-              <button class="button">Supprimer</button>
-                <div class="post">
+            <div class="cadre">';
+               createButton("update",$type);
+               createButton("delete",$type);
+              echo  '<div class="post">
                 <table>';
 
                 echo '
@@ -124,23 +121,15 @@ function deleteRowByID(string $table,int $id) {
                           <tr><td><b>Instrument :</b>'.$tab['instrument'].'</td></tr>
                           <tr><td><b>Album.s :</b>'.$tab['album'].'</td></tr>
                           <tr><td><p><b>Description : </b>'.$tab['description'].'</p></td></tr>
-
-
                           ';
-              /*
-              BUG : undefined index instrument, album, (table participe) description, image (à définir)
-              <tr><td><b>Instrument :</b>'.$tab['instrument'].'</td></tr>
-              <tr><td><b>Album.s :</b>'.$tab['album'].'</td></tr>
-              <tr><td><p><b>Description : </b>'.$tab['description'].'</p></td></tr>
-              */
 
     }
     else if ($type == "album"){
       echo '<div class="container" >
-            <div class="cadre">
-              <button class="button" href="#">Modifier</button>
-              <button class="button">Supprimer</button>
-                <div class="post">
+            <div class="cadre">';
+            createButton("update",$type);
+            createButton("delete",$type);
+              echo  '<div class="post">
                 <table>';
 
             echo'
@@ -241,6 +230,32 @@ function deleteRowByID(string $table,int $id) {
        }
        return false;
      }
+     /**
+      * createButton
+      * Permet de créer un bouton de type supprimer ou modifier pour une catégory (artiste ou album) pour éviter la répétition de code
+      * @param string $type
+      * @param string $category
+      * TODO Tahina
+      */
+
+      function createButton($type,$category){
+        if ($type =="delete"){
+          echo '
+          <button class="button" onclick="confirmation()">Supprimer</button>
+          <script>
+              function confirmation() {
+                  var res = confirm("Do you really really really want to discard this record ?!");
+                  alert(res);
+              }
+          </script>
+          ';
+        }
+        else if ($type =="update"){
+          echo '
+          <a href="form_'.$category.'.html.php"><button class="button">Modifier</button></a>
+          ';
+        }
+      }
 
 
  ?>

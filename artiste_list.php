@@ -21,14 +21,14 @@ $line = [
 
     //TODO requete pour avoir leur id dans l'ordre alphabéthique
 
-   for ($i=1; $i < 22 ; $i++) { // faire en fonction de la taille 
+   for ($i=1; $i < 22 ; $i++) { // faire en fonction de la taille
       createPost(getRowByID($type,$i), $type);
    }
 
 
 
     // test
-    createPost($line, $type);
+  //  createPost($line, $type);
 
 
  ?>

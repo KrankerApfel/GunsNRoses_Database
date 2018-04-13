@@ -64,7 +64,7 @@ function deleteRowByID(string $table,int $id) {
   /**
    * createPost
    * Permet de générer un poste artiste ou album
-   * TODO : récupéré dans Participe les valeurs instrument,album
+   * BUG : certains n'affihce aucun instrument / album
    * @param array $tab
    * @return void
    * DONE Tahina
@@ -72,14 +72,37 @@ function deleteRowByID(string $table,int $id) {
   function createPost(array $tab, $type) {
     if ($type == "artiste" ){
       $ptrDB = connexion();
-      $query1="SELECT alb_titre FROM album  "; //écrire requete album de cet artiste
-      $query2="SELECT * FROM artiste WHERE art_id = 0"; //écrire requete instrument de cet artiste
+      $query1 = "SELECT alb_titre FROM album WHERE alb_id IN
+                 (SELECT alb_id FROM participe WHERE art_id = $1)"; // requete récupère les albums dans lequelle à participé l'artiste
+      $query2 = "SELECT DISTINCT instrument FROM participe WHERE art_id = $1"; // requete récupère les instruments
 
-      //TODO executer et récupérer
+      pg_prepare($ptrDB,"query1",$query1);
+      pg_prepare($ptrDB,"query2",$query2);
+      $ptrQuery = pg_execute($ptrDB, "query1", array($tab['art_id']));
+
+      if (isset($ptrQuery)){
+        $albums ="<ul>";
+        while($ligne = pg_fetch_row($ptrQuery)) {
+          foreach ($ligne as $elm) {
+            $albums .= "<li>".$elm."</li>";
+          }
+        }
+        $albums.="</ul>";
+      }
+
+        $ptrQuery = pg_execute($ptrDB, "query2", array($tab['art_id']));
+        if (isset($ptrQuery)){
+          $instrument ="";
+          while($ligne = pg_fetch_row($ptrQuery)) {
+            foreach ($ligne as $elm) {
+              $instrument .= " ".$elm;
+            }
+          }
+        }
 
       //-------------------------
-      $tab['album'] = "al,al ";
-      $tab['instrument'] = "ins1, ins2";
+      $tab['album'] =$albums;
+      $tab['instrument'] = $instrument;
       $tab['description'] ="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 

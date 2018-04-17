@@ -7,7 +7,7 @@
 <body>
   <script src="js/script1.js"></script>
 
-  <?php $title = "Acceuil"; 
+  <?php $title = "Acceuil";
         include 'navbar.php';
         include 'form_list.php'; ?>
   <div class="container">
@@ -31,7 +31,7 @@
               if(y.style.display !== "none")
                 y.style.display = "none";
           }
-        } 
+        }
         function myFunction2() {
           var x = document.getElementById("3");
           var y = document.getElementById("2");
@@ -40,7 +40,7 @@
             if(y.style.display !== "none")
                 y.style.display = "none";
           }
-        } 
+        }
       </script>
 
       <form action="resultat.php" method="get" id="2" style="display: none">
@@ -82,7 +82,7 @@
             </table>
               <input class="button" type="submit" name="enregistrement" value="Envoyer">
               <input  class="button" type="reset" name="annuler" value="Annuler">
-              <input type="file" id="file" style="display: none;" /> 
+              <input type="file" id="file" style="display: none;" />
       </form>
 
 
@@ -95,7 +95,7 @@
             </tr>
             <tr>
               <th>Sortie</th>
-              <td><input name="sortie" type="date"required></td>
+              <td><input name="sortie" type="date"></td>
             </tr>
             <tr>
               <th>Durée</th>
@@ -116,7 +116,7 @@
             </table>
               <input class="button" type="submit" name="enregistrement" value="Envoyer">
               <input  class="button" type="reset" name="annuler" value="Annuler">
-              <input type="file" id="file" style="display: none;" /> 
+              <input type="file" id="file" style="display: none;" />
       </form>
 
 

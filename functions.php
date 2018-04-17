@@ -51,7 +51,6 @@ function getRowByID($table, $id) {
    * TODO Brice (BUG)
    */
 function deleteRowByID($table, $id) {
-  echo '<h1>OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII</h1>';
     $ptrDB = connexion();
     $i = substr($table, 0, 3);
     $i .= "_id";
@@ -109,10 +108,12 @@ function deleteRowByID($table, $id) {
 
       $statut =(is_null($tab['art_datemort']))? "vivant":" Mort (".$tab['art_datemort'].")";
       echo '<div class="container" >
-            <div class="cadre">';
-               createButton("update",$type);
-               createButton("delete",$type);
-              echo  '<div class="post">
+            <div class="cadre">
+            ';
+
+               createButton("update",$type,$tab);
+               createButton("delete",$type,$tab);
+               echo  '<div class="post">
                 <table>';
 
                 echo '
@@ -130,9 +131,12 @@ function deleteRowByID($table, $id) {
       $tab['description'] ="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
       echo '<div class="container" >
-            <div class="cadre">';
-            createButton("update",$type);
-            createButton("delete",$type);
+            <div class="cadre">
+
+            ';
+
+            createButton("update",$type,$tab);
+            createButton("delete",$type,$tab);
               echo  '<div class="post">
                 <table>';
 
@@ -147,6 +151,7 @@ function deleteRowByID($table, $id) {
     }
     echo '    </table>
               <br/><img src="img/slash.jpg">
+
             </div>
           </div>
       </div>';
@@ -242,27 +247,30 @@ function deleteRowByID($table, $id) {
       * TODO Tahina
       */
 
-      function createButton($type,$category){
-        if ($type =="delete"){
-          echo '
-          <button class="button" onclick="confirmation()">Supprimer</button>
-          <script type="text/javascript">
-              function confirmation() {
-                  var res = confirm("Do you really really really want to discard this record ?!");
-                  if (res){
-                    location.reload(true);
-                  }
+      function createButton($type,$category,$table){
+        $param = "";
+        foreach ($table as $key => $value) {
+            $param .= ''.$key.'='.$table["$key"].'&amp;';
+         }
 
-              }
-          </script>
+        if ($type =="delete"){
+                echo '<a href="delete.html.php?'.$param.'"';
+          echo '
+          <button class ="button">Supprimer</button></a>
+
           ';
         }
         else if ($type =="update"){
-          echo '
-          <a href="form_'.$category.'.html.php"><button class="button">Modifier</button></a>
-          ';
+
+
+          echo '<a href="form_'.$category.'.html.php?'.$param.'"';
+
+          echo '<button class="button">Modifier</button></a>';
+
+
         }
       }
+
 
 
  ?>

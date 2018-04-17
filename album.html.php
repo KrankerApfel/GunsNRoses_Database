@@ -4,7 +4,7 @@
 
 <div class="container" >
   <div class="cadre">
-    <a href="#"><button class="button">Effectuer une recherche</button></a>
+    <a href="recherche.html.php"><button class="button">Effectuer une recherche</button></a>
     <a href="form_album.html.php"><button class="button">Ajouter un album</button></a>
     <h1>Discographie</h1>
     <p> Vous trouverez ci-dessous la liste des albums de Guns and Roses trié par ordre alphabétique. Vous pouvez ajouter un album manquant

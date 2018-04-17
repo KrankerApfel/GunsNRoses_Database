@@ -8,14 +8,14 @@ include 'functions.php';
 * TODO Tahina
 */
 
-$tab = array('sortie', 'titre', 'duree');
+$tab = array('alb_sortie', 'alb_titre');
 
 if (valideForm($_GET, $tab)) {
   echo '<div class="container" >
         <div class="cadre">
-        <a href="#"><button class="button">Modifier</button></a>
-        <button class="button">Supprimer</button>
         ';
+        createButton("update",$title,$_GET);
+        createButton("delete",$title,$_GET);
 	echo "<h3>Tout s'est effectué avec succés !</h3>";
 	echo "<ul>";
 	foreach($_GET as $key=> $val) {

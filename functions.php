@@ -47,8 +47,10 @@ function getRowByID($table, $id) {
    * supprime un enregistrement d'une table passé en paramètre
    * @param string $table
   *  @param int $id
-   * @return array
-   * TODO Brice (BUG)
+   * @return boolean si oui ou non la supression à marché
+   * TODO Brice BUG quand on supprime un album ==>
+   * ERREUR: UPDATE ou DELETE sur la table « album » viole la contrainte de clé étrangère « participe_alb_id_fkey » de la table « participe »
+   * car la clé est toujours référencé dans participe
    */
 function deleteRowByID($table, $id) {
     $ptrDB = connexion();
@@ -59,7 +61,9 @@ function deleteRowByID($table, $id) {
     pg_prepare($ptrDB, "reqprep", $query);
 
     $ptrQuery = pg_execute($ptrDB, "reqprep", array($id));
-    pg_free_result($ptrQuery);
+
+    if ($ptrQuery === false){return false;}
+    else {pg_free_result($ptrQuery); return true;}
 }
 
   /**

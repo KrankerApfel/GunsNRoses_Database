@@ -37,7 +37,7 @@ if (valideForm($_GET, $tab)) {
 	}
 	echo "</ul>";
   echo '</div></div>';
-  //insertRow($array);
+  insertRow($title,$array);
 
 }
 else {

@@ -3,35 +3,35 @@ BUGS :
 - Header : les couleurs sont moches
 - Navbar : changer le lien active quand on clique pour changer de passe[ABDELAZIZ WAS HERE (and fixed this of course hahahahahahah)]
 - Body : impossible de changer le background via le css [ABDELAZIZ WAS HERE (it's not that impossible, but i don't see the 'interet', but if you have any better backgrounds you're the most welcome )]
-
+- deleteRowByID : marche pas sur les album a cause de clÃ© Ã©trangÃ¨re dans participe
 TODO LIST :
-** amélioration non demandé **
-- ajouter image et description à la BDD
-- bouton 'effectuer une recherche' propose d'effectué une requête et de l'affiché dans une pages
-- upload d'image possible avec la méthode post dans formulaire
+** amï¿½lioration non demandï¿½ **
+- ajouter image et description ï¿½ la BDD
+- bouton 'effectuer une recherche' propose d'effectuï¿½ une requï¿½te et de l'affichï¿½ dans une pages
+- upload d'image possible avec la mï¿½thode post dans formulaire
 
 ** important **
->>> pour le formulaire 
+>>> pour le formulaire
 (Tahina)
-- quel type dans le formulaire pour la durée de l'album ? DONE
+- quel type dans le formulaire pour la durï¿½e de l'album ? DONE
 - liste des albums pour le formulaire artiste DONE
 - liste des instrument pour le formulaire artiste DONE
 - displayAlbumsTitles() /displayInstrument() / displayMusic styles DONE
 -
 - envoie d'image
->>> Dans le script functions.php (ensemble de fonctions utiles pour simplifié tout):
-* Brice : 
-  - coder getRowByID(string $table, int $id) qui retourne un tableau associatif représentant un enregistrement d'une table passé en paramètre
-  - coder function deleteRowByID(string $table,int $id) qui supprime un enregistrement d'une table passé en paramètre
+>>> Dans le script functions.php (ensemble de fonctions utiles pour simplifiï¿½ tout):
+* Brice :
+  - coder getRowByID(string $table, int $id) qui retourne un tableau associatif reprï¿½sentant un enregistrement d'une table passï¿½ en paramï¿½tre DONE
+  - coder function deleteRowByID(string $table,int $id) qui supprime un enregistrement d'une table passï¿½ en paramï¿½tre DONE / BUG
 
 * Abdelaziz :
-  - coder insertRow(string $table,array $row) qui permet d'insérer un nouvelle enregistrement dans une table choisit en paramètre
-  - coder updateRow(string $table,array $row) qui permet de mettre à jour un enregistrement dans une table choisit en paramètre
+  - coder insertRow(string $table,array $row) qui permet d'insï¿½rer un nouvelle enregistrement dans une table choisit en paramï¿½tre
+  - coder updateRow(string $table,array $row) qui permet de mettre ï¿½ jour un enregistrement dans une table choisit en paramï¿½tre
 
->>> Javascript : 
-* [insérer un volontaire] :
-  - bouton 'supprimer' execute la fonction deleteRowByID()
-  - bouton 'modifier' execute la fonction updateRow()
+>>> Javascript : // en fait Ã§a marche pas en js faut php pour communiquer avec le serveur
+* [ volontaire : Tahina ] :
+  - bouton 'supprimer' execute la fonction deleteRowByID() DONE
+  - bouton 'modifier' execute la fonction updateRow() DONE
 
 IDEAS :
 	[ABDELAZIZ]:

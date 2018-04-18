@@ -47,7 +47,7 @@
             <tr>
               <th>Mort</th>
               <td>
-                    <input name="mort" type="art_datemort"
+                    <input name="art_datemort" type="date"
                     <?php if(isset($_GET['art_datemort'])) echo 'value="'.$_GET['art_datemort'].'"';  ?>
                     >
               </td>

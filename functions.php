@@ -254,7 +254,14 @@ function deleteRowByID($table, $id) {
       function createButton($type,$category,$table){
         $param = "";
         foreach ($table as $key => $value) {
-            $param .= ''.$key.'='.$table["$key"].'&amp;';
+            if (is_array($table["$key"])){
+              $string = "";
+              foreach ($table["$key"] as $val) {
+                $string .= ",".$val;
+              }
+            }
+            else $string = $table["$key"];
+            $param .= ''.$key.'='.$string.'&amp;';
          }
 
         if ($type =="delete"){

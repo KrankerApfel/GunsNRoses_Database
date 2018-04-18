@@ -186,7 +186,8 @@ function deleteRowByID($table, $id) {
 
            pg_prepare($ptrDB, "reqprep1", $query);
            $ptrQuery = pg_execute($ptrDB, "reqprep1", array());
-           return true;
+           if($ptrQuery == false )  return false;
+           else return true;
          }
          else if( $table== "album"){
            $query = "INSERT INTO artiste VALUES ("
@@ -199,7 +200,8 @@ function deleteRowByID($table, $id) {
            .$row['alb_label']."');";
            pg_prepare($ptrDB, "reqprep2", $query);
            $ptrQuery = pg_execute($ptrDB, "reqprep2", array());
-           return true;
+           if($ptrQuery == false )  return false;
+           else return true;
 
          }
          return false;
@@ -227,6 +229,8 @@ function deleteRowByID($table, $id) {
           WHERE art_id = ".$row['art_id']." ";
          pg_prepare($ptrDB, "reqprep3", $query);
          $ptrQuery = pg_execute($ptrDB, "reqprep3", array());
+         if($ptrQuery == false )  return false;
+         else return true;
        }
        else if ($table == "album") {
          $query = "UPDATE artiste SET
@@ -240,6 +244,9 @@ function deleteRowByID($table, $id) {
           WHERE alb_id = ".$row['alb_id']." ";
          pg_prepare($ptrDB, "reqprep4", $query);
          $ptrQuery = pg_execute($ptrDB, "reqprep4", array());
+
+         if($ptrQuery == false )  return false;
+         else return true;
        }
        return false;
      }

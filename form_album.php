@@ -16,7 +16,7 @@ if (valideForm($_GET, $tab)) {
         ';
         createButton("update",$title,$_GET);
         createButton("delete",$title,$_GET);
-	echo "<h3>Tout s'est effectué avec succés !</h3>";
+	echo "<h3>Donées transmisent : </h3>";
 	echo "<ul>";
 	foreach($_GET as $key=> $val) {
     if(! is_array($val)){
@@ -36,8 +36,10 @@ if (valideForm($_GET, $tab)) {
     }
 	}
 	echo "</ul>";
+  if (insertRow($title,$array)) echo "<h2> Tout s'est effectué avec succés !</h2>";
+  else 	echo "<h2>Quelque chose a empêché l'insertion dans la  bdd</h2>";
   echo '</div></div>';
-  insertRow($title,$array);
+
 
 }
 else {

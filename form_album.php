@@ -1,6 +1,7 @@
 <html>
 <body>
 <?php
+  $title = "Album";
 include 'navbar.php';
 include 'functions.php';
 /*

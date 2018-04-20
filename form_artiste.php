@@ -1,7 +1,7 @@
 <html>
 <body>
 <?php
-$title = "Acceuil"; 
+$title = "Artiste";
 include 'navbar.php';
 include 'functions.php';
 /*
@@ -9,6 +9,12 @@ include 'functions.php';
 */
 
 $tab = array('nom', 'prenom', 'instrument');
+$row_art = array( 'art_pseudo' => null,
+              'art_nom' => null,
+              'art_prenom' => null,
+              'art_dateNaissance' => null,
+              'art_dateMort' => null);
+$row_participe = array();
 
 if (valideForm($_GET, $tab)) {
   echo '<div class="container" >
@@ -36,7 +42,21 @@ if (valideForm($_GET, $tab)) {
 	}
 	echo "</ul>";
   echo '</div></div>';
-  //insertRow($array,$row);
+
+  $row_art['art_pseudo'] = $_GET['pseudo'];
+  $row_art['art_nom'] = $_GET['nom'];
+  $row_art['art_prenom'] = $_GET['prenom'];
+  $row_art['art_dateNaissance'] = $_GET['naissance'];
+  $row_art['art_dateMort'] = $_GET['mort'];
+  insertRow('artiste',$row_art);
+  
+  if(isset($_GET['album']) and is_array($_GET['album'])){
+    foreach ($_GET['album'] as $key => $val) {
+      $row_participe['alb_id'] = $_GET['album'];
+      $row_participe['art_id'] = $_GET[''];
+      $row_participe['instrument'] = $_GET[''];      
+    }
+  }
 
 }
 else {

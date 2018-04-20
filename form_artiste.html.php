@@ -9,7 +9,8 @@
 
   <?php $title = "Artiste";
         include 'navbar.php';
-        include 'form_list.php';?>
+        include 'form_list.php';
+?>
   <div class="container">
     <div class="cadre">
       <form action="form_artiste.php" method="get" id="art_form">
@@ -73,6 +74,7 @@
               else echo "Quelque mot à propos de l'artiste...";
                 ?></textarea></td>
             </tr>
+            <?php  echo "<input type='hidden' name='art_id' value='".$_GET['art_id']."'>";?>
           </table>
 
           <input class="button" type="submit" name="enregistrement" value="Envoyer">

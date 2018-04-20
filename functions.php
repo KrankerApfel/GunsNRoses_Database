@@ -56,14 +56,15 @@ function deleteRowByID($table, $id) {
     $ptrDB = connexion();
     $i = substr($table, 0, 3);
     $i .= "_id";
-    $query = "DELETE FROM $table WHERE $i = $1";
 
-    pg_prepare($ptrDB, "reqprep", $query);
-
-    $ptrQuery = pg_execute($ptrDB, "reqprep", array($id));
-
-    if ($ptrQuery === false){return false;}
-    else {pg_free_result($ptrQuery); return true;}
+    $query1 = "DELETE FROM participe WHERE $i = $1";
+    $query2 = "DELETE FROM $table WHERE $i = $1";
+    pg_prepare($ptrDB, "reqprep1", $query1);
+    pg_prepare($ptrDB, "reqprep2", $query2);
+    $ptrQuery1 = pg_execute($ptrDB, "reqprep1", array($id));
+    $ptrQuery2 = pg_execute($ptrDB, "reqprep2", array($id));
+    if ($ptrQuery2 === false){return false;}
+    else {pg_free_result($ptrQuery1); pg_free_result($ptrQuery2);return true;}
 }
 
   /**
@@ -186,7 +187,7 @@ function deleteRowByID($table, $id) {
 
            pg_prepare($ptrDB, "reqprep1", $query);
            $ptrQuery = pg_execute($ptrDB, "reqprep1", array());
-           if($ptrQuery == false )  return false;
+           if($ptrQuery === false )  return false;
            else return true;
          }
          else if( $table== "album"){
@@ -200,7 +201,7 @@ function deleteRowByID($table, $id) {
            .$row['alb_label']."');";
            pg_prepare($ptrDB, "reqprep2", $query);
            $ptrQuery = pg_execute($ptrDB, "reqprep2", array());
-           if($ptrQuery == false )  return false;
+           if($ptrQuery === false )  return false;
            else return true;
 
          }
@@ -229,7 +230,7 @@ function deleteRowByID($table, $id) {
           WHERE art_id = ".$row['art_id']." ";
          pg_prepare($ptrDB, "reqprep3", $query);
          $ptrQuery = pg_execute($ptrDB, "reqprep3", array());
-         if($ptrQuery == false )  return false;
+         if($ptrQuery === false )  return false;
          else return true;
        }
        else if ($table == "album") {
@@ -245,7 +246,7 @@ function deleteRowByID($table, $id) {
          pg_prepare($ptrDB, "reqprep4", $query);
          $ptrQuery = pg_execute($ptrDB, "reqprep4", array());
 
-         if($ptrQuery == false )  return false;
+         if($ptrQuery === false )  return false;
          else return true;
        }
        return false;

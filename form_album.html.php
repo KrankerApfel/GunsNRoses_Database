@@ -66,6 +66,7 @@
                   ?>
                 </textarea></td>
             </tr>
+              <?php  echo "<input type='hidden' name='alb_id' value='".$_GET['alb_id']."'>";?>
           </table>
 
           <input class="button" type="submit" name="enregistrement" value="Envoyer">

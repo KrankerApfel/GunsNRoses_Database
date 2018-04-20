@@ -1,6 +1,6 @@
 <?php 
-$dbHost="ust-infoserv.univlehavre.lan";
-$dbName="sb161881";
-$dbUser="sb161881";
-$dbPassword="20161881";
- ?>
+	$dbHost = 'ust-infoserv.univlehavre.lan';
+	$dbName = 'sa175140';
+	$dbUser = 'sa175140';
+	$dbPassword = '20175140';
+?>

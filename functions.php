@@ -1,6 +1,6 @@
 <?php
 function connexion() {
-    include "connex2.php";
+    include "connex.php";
     $strConnex="host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
     $ptrDB = pg_connect($strConnex);
     return $ptrDB;
@@ -170,6 +170,7 @@ function deleteRowByID($table, $id) {
      * @return boolean si oui ou non l'insertion à fonctionnée
      * TODO Abdelaziz
      */
+
      function insertRow($table,$row){
          $ptrBD = connexion();/*
            $query = "INSERT INTO artiste VALUES(";
@@ -207,8 +208,6 @@ function deleteRowByID($table, $id) {
          }
          return false;
        }
-
-
     /**
      * updateRow
      * Permet de mettre à jour un enregistrement dans une table choisit en paramètre
@@ -217,6 +216,7 @@ function deleteRowByID($table, $id) {
      * @return boolean si oui ou non la mise à jour à fonctionnée
      * TODO Abdelaziz
      */
+
      function updateRow(string $table,array $row)  {
          $ptrDB = connexion();
        if ($table == "artiste") {
@@ -249,8 +249,20 @@ function deleteRowByID($table, $id) {
          if($ptrQuery === false )  return false;
          else return true;
        }
+       else if ($table == "participe") {
+	      $query = "UPDATE participe SET 
+	      alb_id = ".$row['alb_id'].
+	      " ,art_id = ".$row['alb_titre'].
+	      ",'instrument = ".$row['alb_sortie']."'
+	       WHERE art_id = ".$row['art_id']." ;";
+	      pg_prepare($ptrDB, "reqprep6", $query);
+	      $ptrQuery = pg_execute($ptrDB, "reqprep6", array());
+
+	     if($ptrQuery == false )  return false;
+         else return true;
+    	}
        return false;
-     }
+    }
      /**
       * createButton
       * Permet de créer un bouton de type supprimer ou modifier pour une catégory (artiste ou album) pour éviter la répétition de code
@@ -289,7 +301,5 @@ function deleteRowByID($table, $id) {
 
         }
       }
-
-
 
  ?>

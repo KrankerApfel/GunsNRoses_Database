@@ -44,7 +44,6 @@ include "functions.php";
            }
          }
        }
-
       // suppression des doublons
       $tab = array_unique($tab);
       echo "<ul  style ='list-style-type : none'>";

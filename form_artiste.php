@@ -46,6 +46,7 @@ if (valideForm($_GET, $tab)) {
   $row_art['art_prenom'] = $_GET['art_prenom'];
   $row_art['art_datenaissance'] = $_GET['art_datenaissance'];
   $row_art['art_datemort'] = $_GET['art_datemort'];
+  $row_art['art_id'] = $_GET['art_id'];
   insertRow('artiste',$row_art);
 
   if(isset($_GET['album']) and is_array($_GET['album'])){

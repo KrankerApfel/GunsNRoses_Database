@@ -1,6 +1,6 @@
 <?php
 function connexion() {
-    include "connex.php";
+    include "connex2.php";
     $strConnex="host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
     $ptrDB = pg_connect($strConnex);
     return $ptrDB;
@@ -172,11 +172,7 @@ function deleteRowByID($table, $id) {
      */
 
      function insertRow($table,$row){
-         $ptrBD = connexion();/*
-           $query = "INSERT INTO artiste VALUES(";
-         foreach ($row as $key => $val) {
-           query.="'$val'";
-         }*/
+         $ptrBD = connexion();
          if($table == "artiste"){
            $query = "INSERT INTO artiste VALUES ("
            .$row['art_id'].",'"
@@ -186,8 +182,7 @@ function deleteRowByID($table, $id) {
            .$row['art_datenaissance']."','"
            .$row['art_datemort']."');";
 
-           pg_prepare($ptrDB, "reqprep1", $query);
-           $ptrQuery = pg_execute($ptrDB, "reqprep1", array());
+           $ptrQuery = pg_query(connexion(), $query);
            if($ptrQuery === false )  return false;
            else return true;
          }
@@ -200,8 +195,7 @@ function deleteRowByID($table, $id) {
            .$row['alb_genre']."','"
            .$row['alb_galb_producteurenre']."','"
            .$row['alb_label']."');";
-           pg_prepare($ptrDB, "reqprep2", $query);
-           $ptrQuery = pg_execute($ptrDB, "reqprep2", array());
+            $ptrQuery = pg_query(connexion(), $query);
            if($ptrQuery === false )  return false;
            else return true;
 
@@ -250,7 +244,7 @@ function deleteRowByID($table, $id) {
          else return true;
        }
        else if ($table == "participe") {
-	      $query = "UPDATE participe SET 
+	      $query = "UPDATE participe SET
 	      alb_id = ".$row['alb_id'].
 	      " ,art_id = ".$row['alb_titre'].
 	      ",'instrument = ".$row['alb_sortie']."'

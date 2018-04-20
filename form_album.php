@@ -3,7 +3,7 @@
 <?php
   $title = "Album";
 include 'navbar.php';
-include 'functions.php';
+include 'functions.php';var_dump($_GET);
 /*
 * TODO Tahina
 */

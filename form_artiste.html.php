@@ -7,39 +7,49 @@
 <body>
   <script src="js/script1.js"></script>
 
-  <?php $title = "Artiste"; 
+  <?php $title = "Artiste";
         include 'navbar.php';
-        include 'form_list.php'; ?>
+        include 'form_list.php';?>
   <div class="container">
     <div class="cadre">
       <form action="form_artiste.php" method="get" id="art_form">
           <table>
             <tr>
               <th>Nom*</th>
-              <td><input type="text" name="nom" width="50%" required></td>
+              <td><input type="text" name="art_nom" width="50%" required
+                  <?php if(isset($_GET['art_nom'])) echo 'value="'.$_GET['art_nom'].'"';  ?>
+                ></td>
               <td rowspan="8" style="padding-left:4% ;"><img src="img/noImg.png" alt="placeholder">
               </td>
             </tr>
 
             <tr>
               <th>Prénom*</th>
-              <td><input type="text" name="prenom" width="50%" required></td>
+              <td><input type="text" name="art_prenom" width="50%" required
+                <?php if(isset($_GET['art_prenom'])) echo 'value="'.$_GET['art_prenom'].'"';  ?>
+                ></td>
             </tr>
 
             <tr>
               <th>Pseudo</th>
-              <td><input type="text" name="pseudo" width="50%"></td>
+              <td><input type="text" name="art_pseudo" width="50%"
+                <?php if(isset($_GET['art_pseudo'])) echo 'value="'.$_GET['art_pseudo'].'"';  ?>
+                ></td>
             </tr>
 
             <tr>
               <th>Naissance</th>
-              <td><input name="naissance" type="date"></td>
+              <td><input name="art_datenaissance" type="date"
+                <?php if(isset($_GET['art_datenaissance'])) echo 'value="'.$_GET['art_datenaissance'].'"';  ?>
+                ></td>
             </tr>
 
             <tr>
               <th>Mort</th>
               <td>
-                    <input name="mort" type="date">
+                    <input name="art_datemort" type="date"
+                    <?php if(isset($_GET['art_datemort'])) echo 'value="'.$_GET['art_datemort'].'"';  ?>
+                    >
               </td>
             </tr>
 
@@ -59,7 +69,9 @@
 
             <tr>
               <th>Description</th>
-              <td><textarea rows="4" cols="50" name="description" form="art_form">Quelque mot à propos de l'artiste...</textarea></td>
+              <td><textarea rows="4" cols="50" name="description" form="art_form"><?php if(isset($_GET['description'])) echo ''.$_GET['description'].'';
+              else echo "Quelque mot à propos de l'artiste...";
+                ?></textarea></td>
             </tr>
           </table>
 

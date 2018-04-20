@@ -4,17 +4,18 @@
 $title = "Artiste";
 include 'navbar.php';
 include 'functions.php';
+var_dump($_GET);
 /*
 * TODO Tahina
 */
 
-$tab = array('nom', 'prenom', 'instrument');
 $row_art = array( 'art_pseudo' => null,
               'art_nom' => null,
               'art_prenom' => null,
               'art_dateNaissance' => null,
               'art_dateMort' => null);
 $row_participe = array();
+$tab = array('art_nom', 'art_prenom', 'instrument');
 
 if (valideForm($_GET, $tab)) {
   echo '<div class="container" >
@@ -45,11 +46,11 @@ if (valideForm($_GET, $tab)) {
 	echo "</ul>";
   echo '</div></div>';
 
-  $row_art['art_pseudo'] = $_GET['pseudo'];
-  $row_art['art_nom'] = $_GET['nom'];
-  $row_art['art_prenom'] = $_GET['prenom'];
-  $row_art['art_dateNaissance'] = $_GET['naissance'];
-  $row_art['art_dateMort'] = $_GET['mort'];
+  $row_art['art_pseudo'] = $_GET['art_pseudo'];
+  $row_art['art_nom'] = $_GET['art_nom'];
+  $row_art['art_prenom'] = $_GET['art_prenom'];
+  $row_art['art_datenaissance'] = $_GET['art_datenaissance'];
+  $row_art['art_datemort'] = $_GET['art_datemort'];
   insertRow('artiste',$row_art);
   
   if(isset($_GET['album']) and is_array($_GET['album'])){

@@ -1,38 +1,9 @@
-BUGS :
+﻿TODO LISTE :
+Important -->
+Abdelaziz :
+* updateRow() => il faut que ça marche, on ne met pas à jour l'ID !
+* dans les scripts form_album.php et form_artiste.php faire un script qui choisit enrte updateRow() et insertRow() en fonction de si un id est renseigné dans $_GET
 
-- Header : les couleurs sont moches
-- Navbar : changer le lien active quand on clique pour changer de passe[ABDELAZIZ WAS HERE (and fixed this of course hahahahahahah)]
-- Body : impossible de changer le background via le css [ABDELAZIZ WAS HERE (it's not that impossible, but i don't see the 'interet', but if you have any better backgrounds you're the most welcome )]
-- deleteRowByID : marche pas sur les album a cause de clé étrangère dans participe
-TODO LIST :
-** am�lioration non demand� **
-- ajouter image et description � la BDD
-- bouton 'effectuer une recherche' propose d'effectu� une requ�te et de l'affich� dans une pages
-- upload d'image possible avec la m�thode post dans formulaire
-
-** important **
->>> pour le formulaire
-(Tahina)
-- quel type dans le formulaire pour la dur�e de l'album ? DONE
-- liste des albums pour le formulaire artiste DONE
-- liste des instrument pour le formulaire artiste DONE
-- displayAlbumsTitles() /displayInstrument() / displayMusic styles DONE
--
-- envoie d'image
->>> Dans le script functions.php (ensemble de fonctions utiles pour simplifi� tout):
-* Brice :
-  - coder getRowByID(string $table, int $id) qui retourne un tableau associatif repr�sentant un enregistrement d'une table pass� en param�tre DONE
-  - coder function deleteRowByID(string $table,int $id) qui supprime un enregistrement d'une table pass� en param�tre DONE / BUG
-
-* Abdelaziz :
-  - coder insertRow(string $table,array $row) qui permet d'ins�rer un nouvelle enregistrement dans une table choisit en param�tre
-  - coder updateRow(string $table,array $row) qui permet de mettre � jour un enregistrement dans une table choisit en param�tre
-
->>> Javascript : // en fait ça marche pas en js faut php pour communiquer avec le serveur
-* [ volontaire : Tahina ] :
-  - bouton 'supprimer' execute la fonction deleteRowByID() DONE
-  - bouton 'modifier' execute la fonction updateRow() DONE
-
-IDEAS :
-	[ABDELAZIZ]:
-  -omg i really want to see the look on Brice's face when he'll findout we did all this already HHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+Tahina : 
+* insertRow() mise à jour de participe 
+* createPoste() afficher les participants d'un albums

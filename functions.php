@@ -67,7 +67,6 @@ function deleteRowByID($table, $id) {
   /**
    * createPost
    * Permet de générer un poste artiste ou album
-   * BUG : certains n'affihce aucun instrument / album
    * @param array $tab
    * @return void
    * DONE Tahina TODO BUG afficher les participants des albums
@@ -188,7 +187,7 @@ function deleteRowByID($table, $id) {
            if($ptrQuery === false)  return false;
            else return true;
          }
-         //BUG
+         
          else if( $table== "album"){
            foreach ($row as $key => $value) {
              if (!is_array($value)) {
@@ -269,7 +268,7 @@ function deleteRowByID($table, $id) {
       * Permet de créer un bouton de type supprimer ou modifier pour une catégory (artiste ou album) pour éviter la répétition de code
       * @param string $type
       * @param string $category
-      * TODO Tahina
+      * DONE Tahina
       */
 
       function createButton($type,$category,$table){

@@ -129,6 +129,23 @@ function deleteRowByID($table, $id) {
 
     }
     else if ($type == "album"){
+      $query = "SELECT art_nom FROM artiste WHERE art_id IN
+                 (SELECT art_id FROM participe WHERE alb_id = $1)";
+      pg_prepare(connexion(),"query",$query);
+      $ptrQuery = pg_execute(connexion(), "query", array($tab['alb_id']));
+
+      if (isset($ptrQuery)){
+        $artistes ="<ul>";
+        while($ligne = pg_fetch_row($ptrQuery)) {
+          foreach ($ligne as $elm) {
+            $artistes .= "<li>".$elm."</li>";
+          }
+        }
+        $artistes.="</ul>";
+      }
+
+
+
       $tab['description'] ="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
       echo '<div class="container" >
@@ -148,6 +165,7 @@ function deleteRowByID($table, $id) {
                       <tr><td><b>Producteur :</b>'.$tab['alb_producteur'].'</td></tr>
                       <tr><td><b>Label :</b>'.$tab['alb_label'].'</td></tr>
                       <tr><td><b>Genre :</b>'.$tab['alb_genre'].'</td></tr>
+                        <tr><td><b>Participants :</b>'.$artistes.'</td></tr>
                       <tr><td><p><b>Description : </b>'.$tab['description'].'</p></td></tr>';
     }
     echo '    </table>
@@ -187,7 +205,7 @@ function deleteRowByID($table, $id) {
            if($ptrQuery === false)  return false;
            else return true;
          }
-         
+
          else if( $table== "album"){
            foreach ($row as $key => $value) {
              if (!is_array($value)) {

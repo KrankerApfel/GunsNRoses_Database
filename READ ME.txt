@@ -6,4 +6,4 @@ Abdelaziz :
 
 Tahina : 
 * insertRow() mise à jour de participe 
-* createPoste() afficher les participants d'un albums
+* createPoste() afficher les participants d'un albums DONE

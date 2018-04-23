@@ -36,7 +36,8 @@ if (valideForm($_GET, $tab)) {
     }
 	}
 	echo "</ul>";
-  if (insertRow($title,$array)) echo "<h2> Tout s'est effectué avec succés !</h2>";
+  foreach ($_GET as $key => $value) {$row_alb["$key"] = $value;}
+  if (insertRow('album',$row_alb)) echo "<h2> Tout s'est effectué avec succés !</h2>";
   else 	echo "<h2>Quelque chose a empêché l'insertion dans la  bdd</h2>";
   echo '</div></div>';
 

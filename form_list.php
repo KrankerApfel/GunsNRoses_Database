@@ -48,7 +48,7 @@ include "functions.php";
       $tab = array_unique($tab);
       echo "<ul  style ='list-style-type : none'>";
       foreach ($tab as $style) {
-        echo '<li><input type="checkbox" name="genre[]" value="'.$style.'"> '.$style.' </li>';
+        echo '<li><input type="checkbox" name="alb_genre[]" value="'.$style.'"> '.$style.' </li>';
       }
       echo "</ul>";
     }

@@ -13,12 +13,11 @@ function valideForm(&$method, $tabCles) {
             return FALSE;
         }
 	return TRUE;
-    }
+}
 /**
  * getRowByID
- * NOTE : Si l'élément récupéré est à null, mettre "non renseigné" dans le tableau à la clé correspondante
  * @param string $table
-*  @param int $id
+ *  @param int $id
  * @return array tableau associatif représentant un enregistrement d'une table passé en paramètre
  * TODO Brice (DONE)
  */
@@ -48,9 +47,7 @@ function getRowByID($table, $id) {
    * @param string $table
   *  @param int $id
    * @return boolean si oui ou non la supression à marché
-   * TODO Brice BUG quand on supprime un album ==>
-   * ERREUR: UPDATE ou DELETE sur la table « album » viole la contrainte de clé étrangère « participe_alb_id_fkey » de la table « participe »
-   * car la clé est toujours référencé dans participe
+   * TODO Brice (DONE)
    */
 function deleteRowByID($table, $id) {
     $ptrDB = connexion();
@@ -168,37 +165,47 @@ function deleteRowByID($table, $id) {
      * @param string $table
      * @param array $row
      * @return boolean si oui ou non l'insertion à fonctionnée
-     * TODO Abdelaziz
+     * TODO Abdelaziz BUG MISR A JOUR dE LA TABLE PARTICIPE PLEAAASE !!
      */
 
      function insertRow($table,$row){
-         $ptrBD = connexion();
          if($table == "artiste"){
-           $query = "INSERT INTO artiste VALUES ("
-           .$row['art_id'].",'"
-           .$row['art_pseudo']."','"
-           .$row['art_nom']."','"
-           .$row['art_prenom']."','"
-           .$row['art_datenaissance']."','"
-           .$row['art_datemort']."');";
-
+           foreach ($row as $key => $value) {
+             if (!is_array($value)) {
+               if($value === '') $row["$key"] = "NULL";
+               else { $row["$key"] = "'".$value."'";}
+             }
+             else {
+               $value = implode($value);
+               if($value === '') $row["$key"] = "NULL";
+               else { $row["$key"] = "'".$value."'";}
+             }
+           }
+           $str ="(".$row['art_pseudo'].",".$row['art_nom'].",".$row['art_prenom'].",".$row['art_datenaissance'].",".$row['art_datemort'].")";
+           $query = "INSERT INTO artiste (art_pseudo, art_nom, art_prenom, art_datenaissance, art_datemort) VALUES ".$str;
+           $ptrQuery = pg_query(connexion(), $query);
+           // PARTICIPE A FAIRE -----
+           if($ptrQuery === false)  return false;
+           else return true;
+         }
+         //BUG
+         else if( $table== "album"){
+           foreach ($row as $key => $value) {
+             if (!is_array($value)) {
+               if($value === '') $row["$key"] = "NULL";
+               else { $row["$key"] = "'".$value."'";}
+             }
+             else {
+               $value = implode($value);
+               if($value === '') $row["$key"] = "NULL";
+               else { $row["$key"] = "'".$value."'";}
+             }
+           }
+           $str ="(".$row['alb_titre'].",".$row['alb_sortie'].",".$row['alb_duree'].",".$row['alb_genre'].",".$row['alb_producteur'].",".$row['alb_label'].")";
+           $query = "INSERT INTO album (alb_titre, alb_sortie, alb_duree, alb_genre, alb_producteur,  alb_label) VALUES ".$str;
            $ptrQuery = pg_query(connexion(), $query);
            if($ptrQuery === false )  return false;
            else return true;
-         }
-         else if( $table== "album"){
-           $query = "INSERT INTO artiste VALUES ("
-           .$row['alb_id'].",'"
-           .$row['alb_titre']."','"
-           .$row['alb_sortie']."','"
-           .$row['alb_duree']."','"
-           .$row['alb_genre']."','"
-           .$row['alb_galb_producteurenre']."','"
-           .$row['alb_label']."');";
-            $ptrQuery = pg_query(connexion(), $query);
-           if($ptrQuery === false )  return false;
-           else return true;
-
          }
          return false;
        }
@@ -208,7 +215,7 @@ function deleteRowByID($table, $id) {
      * @param string $table
      * @param array $row
      * @return boolean si oui ou non la mise à jour à fonctionnée
-     * TODO Abdelaziz
+     * TODO Abdelaziz BUG ne pas update l'id PLEASE !!!!!
      */
 
      function updateRow(string $table,array $row)  {

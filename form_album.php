@@ -3,7 +3,7 @@
 <?php
   $title = "Album";
 include 'navbar.php';
-include 'functions.php';var_dump($_GET);
+include 'functions.php';
 /*
 * TODO Tahina
 */
@@ -23,7 +23,6 @@ if (valideForm($_GET, $tab)) {
   	  echo "<li>";
       if($val =="") $val = "non renseigné";
   	  echo "<b>$key : </b> $val";
-      $array["$key"] = $val;
   	  echo "</li>";
     }
     else {

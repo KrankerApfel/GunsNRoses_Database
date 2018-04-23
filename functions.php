@@ -19,7 +19,7 @@ function valideForm(&$method, $tabCles) {
  * @param string $table
  *  @param int $id
  * @return array tableau associatif représentant un enregistrement d'une table passé en paramètre
- * TODO Brice (DONE)
+ * DONE Brice
  */
 function getRowByID($table, $id) {
     $ptrDB = connexion();
@@ -47,7 +47,7 @@ function getRowByID($table, $id) {
    * @param string $table
   *  @param int $id
    * @return boolean si oui ou non la supression à marché
-   * TODO Brice (DONE)
+   * DONE Brice
    */
 function deleteRowByID($table, $id) {
     $ptrDB = connexion();
@@ -70,7 +70,7 @@ function deleteRowByID($table, $id) {
    * BUG : certains n'affihce aucun instrument / album
    * @param array $tab
    * @return void
-   * DONE Tahina
+   * DONE Tahina TODO BUG afficher les participants des albums
    */
   function createPost(array $tab, $type) {
     if ($type == "artiste" ){
@@ -165,7 +165,7 @@ function deleteRowByID($table, $id) {
      * @param string $table
      * @param array $row
      * @return boolean si oui ou non l'insertion à fonctionnée
-     * TODO Abdelaziz BUG MISR A JOUR dE LA TABLE PARTICIPE PLEAAASE !!
+     * TODO Abdelaziz / Tahina  BUG MISR A JOUR dE LA TABLE PARTICIPE PLEAAASE !!
      */
 
      function insertRow($table,$row){
@@ -196,7 +196,7 @@ function deleteRowByID($table, $id) {
                else { $row["$key"] = "'".$value."'";}
              }
              else {
-               $value = implode($value);
+               $value = implode(",",$value);
                if($value === '') $row["$key"] = "NULL";
                else { $row["$key"] = "'".$value."'";}
              }

@@ -39,18 +39,18 @@
             </tr>
 
             <tr>
-              <th>Producteur</th>
+              <th>Producteur*</th>
               <td><input type="text" name="alb_producteur" width="50%"
                 <?php if(isset($_GET['alb_producteur'])) echo 'value="'.$_GET['alb_producteur'].'"';  ?>
-                ></td>
+                required></td>
             </tr>
 
             <tr>
-              <th>Label</th>
+              <th>Label*</th>
               <td><input type="text" name="alb_label" width="50%"
                 <?php if(isset($_GET['alb_label'])) echo 'value="'.$_GET['alb_label'].'"';  ?>
 
-                ></td>
+                required></td>
             </tr>
 
             <tr>
@@ -66,7 +66,7 @@
                   ?>
                 </textarea></td>
             </tr>
-              <?php  echo "<input type='hidden' name='alb_id' value='".$_GET['alb_id']."'>";?>
+              <?php if(isset($_GET['alb_id'])) echo "<input type='hidden' name='alb_id' value='".$_GET['alb_id']."'>";?>
           </table>
 
           <input class="button" type="submit" name="enregistrement" value="Envoyer">

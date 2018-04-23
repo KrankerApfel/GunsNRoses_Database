@@ -74,7 +74,7 @@
               else echo "Quelque mot à propos de l'artiste...";
                 ?></textarea></td>
             </tr>
-            <?php  echo "<input type='hidden' name='art_id' value='".$_GET['art_id']."'>";?>
+            <?php if(isset($_GET['art_id']))  echo "<input type='hidden' name='art_id' value='".$_GET['art_id']."'>";?>
           </table>
 
           <input class="button" type="submit" name="enregistrement" value="Envoyer">

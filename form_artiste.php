@@ -45,9 +45,15 @@ if (valideForm($_GET, $tab)) {
     }
   }
 
+ if (isset($_GET['art_id'])) {
+  if( updateRow('artiste',$row_art))echo "<h2> Tout s'est effectué avec succés !</h2>";
+  else 	echo "<h2>Quelque chose a empêché la mise à jour de la  bdd</h2>";
+ }
+ else{
+   if (insertRow('artiste',$row_art)) echo "<h2> Tout s'est effectué avec succés !</h2>";
+   else 	echo "<h2>Quelque chose a empêché l'insertion dans la  bdd</h2>";
+ }
 
-  if (insertRow('artiste',$row_art)) echo "<h2> Tout s'est effectué avec succés !</h2>";
-  else 	echo "<h2>Quelque chose a empêché l'insertion dans la  bdd</h2>";
 	echo "</ul>";
   echo '</div></div>';
 

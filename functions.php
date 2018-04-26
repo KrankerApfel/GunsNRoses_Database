@@ -224,9 +224,6 @@ function deleteRowByID($table, $id) {
              }
            }
 
-
-
-
            if($ptrQuery10 === false)  return false;
            else return true;
          }
@@ -260,7 +257,7 @@ function deleteRowByID($table, $id) {
      * TODO Abdelaziz BUG ne pas update l'id PLEASE !!!!!
      */
 
-     function updateRow(string $table,array $row)  {
+     function updateRow($table, $row)  {
          $ptrDB = connexion();
        if ($table == "artiste") {
          $query = "UPDATE artiste SET

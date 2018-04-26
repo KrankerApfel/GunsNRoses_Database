@@ -59,10 +59,18 @@ include "functions.php";
       // suppression des doublons
       $tab = array_unique($tab);
       echo "<ul  style ='list-style-type : none'>";
+      $str ="";
       foreach ($tab as $style) {
-        echo '<li><input type="checkbox" name="alb_genre[]" value="'.$style.'"> '.$style.' </li>';
+        $str.= '<li><input type="checkbox" name="alb_genre[]" value="'.$style.'"';
+        if(isset($_GET['alb_genre'])){
+          $TAB = explode(",",$_GET['alb_genre']);
+          foreach ($TAB as $value) {
+            if($style === $value." " || $style === " ".$value." ") $str .= ' checked';
+          }
+        }
+        $str .= ' > '.$style.' </li>';
       }
-      echo "</ul>";
+      echo  $str."\n</ul>";
     }
 
     function displayInstrument() {

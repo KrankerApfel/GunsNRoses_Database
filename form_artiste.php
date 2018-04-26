@@ -40,8 +40,9 @@ if (valideForm($_GET, $tab)) {
   if(isset($_GET['album']) and is_array($_GET['album'])){
     foreach ($_GET['album'] as $key => $val) {
       $row_participe['alb_id'] = $_GET['album'];
-      $row_participe['art_id'] = $_GET['art_id'];
       $row_participe['instrument'] = $_GET['instrument'];
+      if(isset($_GET['art_id'])) $row_participe['art_id'] = $_GET['art_id'];
+
     }
   }
 

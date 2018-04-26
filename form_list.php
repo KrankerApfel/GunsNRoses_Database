@@ -18,9 +18,21 @@ include "functions.php";
          }
 
         echo "<ul  style ='list-style-type : upper-roman'>";
+        $str = "";
         foreach ($tab as $title) {
-          echo '<li><input type="checkbox" name="album[]" value="'.$title.'"> '.$title.'  </li>';
+          $str .= '<li><input type="checkbox" name="album[]" value="'.$title.'"';
+
+          if(isset($_GET['album'])){
+            $TAB = explode(",",$_GET['album']);
+            //var_dump($TAB);
+            foreach ($TAB as $value) {
+              if($value === $title) $str .= ' checked';
+            }
+          }
+
+          $str .= ' > '.$title.' </li>';
         }
+        echo $str;
         echo "</ul'>";
       }
     }
@@ -65,14 +77,17 @@ include "functions.php";
 
         if ($ptrQuery) {
            while($ligne = pg_fetch_row($ptrQuery)) {
-             foreach ($ligne as $elm) {array_push($tab, "".$elm." ");}
+             foreach ($ligne as $elm) {array_push($tab, "".$elm);}
            }
          }
        }
 
 
       foreach ($tab as $instrument) {
-        echo '<option value='.$instrument.' name='.$instrument.'>'.$instrument.'</option>';
+        $str = '<option value='.$instrument.' name='.$instrument;
+        if(isset($_GET['instrument']) && $instrument === $_GET['instrument']) $str .= ' selected';
+        $str .=' >'.$instrument.'</option>';
+        echo $str;
       }
     }
 ?>

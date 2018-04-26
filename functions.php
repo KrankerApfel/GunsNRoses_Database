@@ -83,13 +83,12 @@ function deleteRowByID($table, $id) {
       $ptrQuery = pg_execute($ptrDB, "query1", array($tab['art_id']));
 
       if (isset($ptrQuery)){
-        $albums ="<ul>";
+        $albums = array();
         while($ligne = pg_fetch_row($ptrQuery)) {
           foreach ($ligne as $elm) {
-            $albums .= "<li>".$elm."</li>";
+            array_push($albums, $elm) ;
           }
         }
-        $albums.="</ul>";
       }
 
         $ptrQuery = pg_execute($ptrDB, "query2", array($tab['art_id']));
@@ -97,12 +96,18 @@ function deleteRowByID($table, $id) {
           $instrument ="";
           while($ligne = pg_fetch_row($ptrQuery)) {
             foreach ($ligne as $elm) {
-              $instrument .= " ".$elm;
+              $instrument .= "".$elm;
             }
           }
         }
 
       //-------------------------
+      $alb_list = "<ul>";
+      foreach ($albums as $v) {
+        $alb_list .= "<li>".$v."</li>";
+      }
+      $alb_list .="</ul>";
+      //------------------------
       $tab['album'] =$albums;
       $tab['instrument'] = $instrument;
       $tab['description'] ="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
@@ -123,7 +128,7 @@ function deleteRowByID($table, $id) {
                           <tr><td><b>Date de naissance :</b> '.$tab['art_datenaissance'].'</tr>
                           <tr><td><b>Statut :</b> '.$statut.'</td></tr>
                           <tr><td><b>Instrument :</b>'.$tab['instrument'].'</td></tr>
-                          <tr><td><b>Album.s :</b>'.$tab['album'].'</td></tr>
+                          <tr><td><b>Album.s :</b>'.$alb_list.'</td></tr>
                           <tr><td><p><b>Description : </b>'.$tab['description'].'</p></td></tr>
                           ';
 
@@ -202,7 +207,7 @@ function deleteRowByID($table, $id) {
            $query = "INSERT INTO artiste (art_pseudo, art_nom, art_prenom, art_datenaissance, art_datemort) VALUES ".$str;
            $ptrDB = connexion();
            $ptrQuery = pg_query($ptrDB, $query);
-           // PARTICIPE A FAIRE -----            $query = "SELECT last_value FROM artiste_art_id_seq";
+           // PARTICIPE A FAIRE -----
            $i = 0;
            $query1 = "SELECT last_value FROM artiste_art_id_seq";
            $ptrQuery1 = pg_query($ptrDB,$query1);
@@ -259,19 +264,39 @@ function deleteRowByID($table, $id) {
 
      function updateRow($table, $row)  {
          $ptrDB = connexion();
+         $str = "UPDATE artiste SET art_nom = '".$row['art_nom']."'";
        if ($table == "artiste") {
-         $query = "UPDATE artiste SET
-         art_id = ".$row['art_id'].
-         ",'art_pseudo = ".$row['art_pseudo'].
-         "','art_nom = ".$row['art_nom'].
-         "','art_prenom = ".$row['art_prenom'].
-         "','art_datenaissance = ".$row['art_datenaissance'].
-         "','art_datemort = '".$row['art_datemort']."'
-          WHERE art_id = ".$row['art_id']." ";
-         pg_prepare($ptrDB, "reqprep3", $query);
-         $ptrQuery = pg_execute($ptrDB, "reqprep3", array());
+         foreach ($row as $key => $value) {
+           if (!is_array($value) && $key !="art_nom" && $key !="instrument" && $key !="description" && $key !="art_id" && $key !="enregistrement") {
+             if($value === '') $row["$key"] = "$key =  NULL";
+             else { $row["$key"] = "$key = '".$value."'";}
+             $str .=", ".$row["$key"];
+           }
+         }
+         $str .= " WHERE art_id = ".$row['art_id'];
+         echo "$str";
+         $ptrQuery = pg_query($ptrDB,$str);
+         //------- PARTICIPE -----------------
+         $i = 0;
+         foreach ($_GET['album'] as $key => $value) {
+           $query = "SELECT alb_id FROM album where alb_titre = $1";
+           pg_prepare($ptrDB,"prep".$i,$query);
+           $ptrQuery = pg_execute($ptrDB,"prep".$i++, array("$value"));
+           if (isset($ptrQuery)){
+             $art_id = $row['art_id'];
+             while ($line = pg_fetch_row($ptrQuery)) {
+               foreach ($line as $val) {
+                 $ins  = "'".$_GET['instrument']."'";
+                 $query10 = "UPDATE  participe SET art_id = $art_id ,alb_id = $val, instrument = $ins";
+                 $ptrQuery10 = pg_query($ptrDB,$query10);
+               }
+             }
+           }
+         }
+         //-----------------------------------
          if($ptrQuery === false )  return false;
          else return true;
+
        }
        else if ($table == "album") {
          $query = "UPDATE artiste SET
@@ -289,18 +314,6 @@ function deleteRowByID($table, $id) {
          if($ptrQuery === false )  return false;
          else return true;
        }
-       else if ($table == "participe") {
-	      $query = "UPDATE participe SET
-	      alb_id = ".$row['alb_id'].
-	      " ,art_id = ".$row['alb_titre'].
-	      ",'instrument = ".$row['alb_sortie']."'
-	       WHERE art_id = ".$row['art_id']." ;";
-	      pg_prepare($ptrDB, "reqprep6", $query);
-	      $ptrQuery = pg_execute($ptrDB, "reqprep6", array());
-
-	     if($ptrQuery == false )  return false;
-         else return true;
-    	}
        return false;
     }
      /**

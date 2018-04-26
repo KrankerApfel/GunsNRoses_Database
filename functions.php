@@ -200,9 +200,34 @@ function deleteRowByID($table, $id) {
            }
            $str ="(".$row['art_pseudo'].",".$row['art_nom'].",".$row['art_prenom'].",".$row['art_datenaissance'].",".$row['art_datemort'].")";
            $query = "INSERT INTO artiste (art_pseudo, art_nom, art_prenom, art_datenaissance, art_datemort) VALUES ".$str;
-           $ptrQuery = pg_query(connexion(), $query);
-           // PARTICIPE A FAIRE -----
-           if($ptrQuery === false)  return false;
+           $ptrDB = connexion();
+           $ptrQuery = pg_query($ptrDB, $query);
+           // PARTICIPE A FAIRE -----            $query = "SELECT last_value FROM artiste_art_id_seq";
+           $i = 0;
+           $query1 = "SELECT last_value FROM artiste_art_id_seq";
+           $ptrQuery1 = pg_query($ptrDB,$query1);
+           $art_id = implode(pg_fetch_row($ptrQuery1));
+
+           foreach ($_GET['album'] as $key => $value) {
+             $query = "SELECT alb_id FROM album where alb_titre = $1";
+             pg_prepare($ptrDB,"prep".$i,$query);
+             $ptrQuery = pg_execute($ptrDB,"prep".$i++, array("$value"));
+
+             if (isset($ptrQuery)){
+               while ($row = pg_fetch_row($ptrQuery)) {
+                 foreach ($row as $val) {
+                    $ins  = "'".$_GET['instrument']."'";
+                   $query10 = "INSERT into participe (art_id,alb_id,instrument) VALUES"."($art_id,$val,$ins)";
+                   $ptrQuery10 = pg_query($ptrDB,$query10);
+                 }
+               }
+             }
+           }
+
+
+
+
+           if($ptrQuery10 === false)  return false;
            else return true;
          }
 

@@ -13,7 +13,7 @@ include "functions.php";
 
         if ($ptrQuery) {
            while($ligne = pg_fetch_row($ptrQuery)) {
-             foreach ($ligne as $elm) {array_push($tab, "".$elm." ");}
+             foreach ($ligne as $elm) {array_push($tab, "".$elm."");}
            }
          }
 

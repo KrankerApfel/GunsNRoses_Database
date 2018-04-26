@@ -274,25 +274,22 @@ function deleteRowByID($table, $id) {
            }
          }
          $str .= " WHERE art_id = ".$row['art_id'];
-         echo "$str";
          $ptrQuery = pg_query($ptrDB,$str);
          //------- PARTICIPE -----------------
-         $i = 0;
-         foreach ($_GET['album'] as $key => $value) {
-           $query = "SELECT alb_id FROM album where alb_titre = $1";
-           pg_prepare($ptrDB,"prep".$i,$query);
-           $ptrQuery = pg_execute($ptrDB,"prep".$i++, array("$value"));
-           if (isset($ptrQuery)){
-             $art_id = $row['art_id'];
-             while ($line = pg_fetch_row($ptrQuery)) {
-               foreach ($line as $val) {
-                 $ins  = "'".$_GET['instrument']."'";
-                 $query10 = "UPDATE  participe SET art_id = $art_id ,alb_id = $val, instrument = $ins";
-                 $ptrQuery10 = pg_query($ptrDB,$query10);
-               }
-             }
+         $deleteQuery = "DELETE FROM participe WHERE art_id = ".$row['art_id'];
+         $deletePtrQuery = pg_query($ptrDB,$deleteQuery);
+
+         if (isset($_GET['album'])){
+           foreach ($_GET['album'] as $alb) {
+             $insertQuery = "INSERT INTO participe (art_id, alb_id, instrument) VALUES";
+             $sou = "(select alb_id from album where alb_titre='$alb')";
+             $insertQuery .= "(".$row['art_id'].",$sou,'".$row['instrument']."')";
+             pg_query($ptrDB, $insertQuery);
            }
+
          }
+
+
          //-----------------------------------
          if($ptrQuery === false )  return false;
          else return true;

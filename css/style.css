@@ -3,6 +3,18 @@ body{
 
 	background-image: url("../img/bg.png");/*you can activate this if you want wut it's so ugly*/
 }
+
+a {
+	color: #fee9fc;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:visited {
+	color: #D7A6AA;
+	font-weight: bold;
+	text-decoration: none;
+}
+
 .logo_home {
 	padding:0em;
 	margin:1em auto;

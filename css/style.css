@@ -64,7 +64,7 @@ body{
     border: none;
     color: #fee9fc;
     padding: 15px 32px;
-		margin : 10px; 
+		margin : 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -103,6 +103,9 @@ body{
 	margin:Oem;
 	padding:0em;
 	position:relative;
+}
+.post table {
+	max-width: 70%;
 }
 .post {
 	display: inline-flex;

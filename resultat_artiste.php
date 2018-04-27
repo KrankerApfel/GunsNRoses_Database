@@ -15,16 +15,6 @@
     <div class="cadre">
 <?php
 
-    /*---------------------------------------------------------------------
-     * Utilisation de la fonction valideForm
-     * pour pouvoir afficher le résultat du formulaire
-     */
-
-
-
-    /*---------------------------------------------------------------------
-     * Envoi un message en cas d'erreur de connection à pgsql
-     */
   
     $bdd = connexion();
     if (!$bdd) {

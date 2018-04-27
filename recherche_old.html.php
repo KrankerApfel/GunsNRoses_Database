@@ -43,14 +43,14 @@
         }
       </script>
 
-      <form action="resultat_artiste.php" method="POST" id="2" style="display: none">
+      <form action="resultat.php" method="get" id="2" style="display: none">
           <table>
             <tr>
-              <th>Nom*</th>
+              <th>Nom</th>
               <td><input type="text" name="nom" width="50%"></td>
             </tr>
             <tr>
-              <th>Prénom*</th>
+              <th>Prénom</th>
               <td><input type="text" name="prenom" width="50%"></td>
             </tr>
             <tr>
@@ -67,6 +67,14 @@
                 <input name="mort" type="date">
               </td>
             </tr>
+            <tr >
+              <th>Instrument</th>
+              <td>
+                <select size="3" name="instrument">
+                  <?php displayInstrument(); ?>
+                </select>
+              </td>
+            </tr>
             <tr>
               <th>Album.s</th>
               <td><?php displayAlbumsTitles();?></td>
@@ -75,11 +83,10 @@
               <input class="button" type="submit" name="enregistrement" value="Envoyer">
               <input  class="button" type="reset" name="annuler" value="Annuler">
               <input type="file" id="file" style="display: none;" />
-              <h3>* Champs obligatoires</h3>
       </form>
 
 
-      <form action="resultat_album.php" method="POST" id="3" style="display: none">
+      <form action="resultat.php" method="get" id="3" style="display: none">
           <table>
             <tr>
               <th>Titre</th>
@@ -87,32 +94,30 @@
               </td>
             </tr>
             <tr>
-              <th>Sortie*</th>
+              <th>Sortie</th>
               <td><input name="sortie" type="date"></td>
             </tr>
             <tr>
-              <th>Durée*</th>
+              <th>Durée</th>
               <td><input type="time" step="2" name="duree" width="50%"></td>
             </tr>
             <tr>
-              <th>Producteur*</th>
+              <th>Producteur</th>
               <td><input type="text" name="producteur" width="50%"></td>
             </tr>
             <tr>
-              <th>Label*</th>
+              <th>Label</th>
               <td><input type="text" name="label" width="50%"></td>
             </tr>
             <tr>
-              <th>Genre*</th>
+              <th>Genre</th>
               <td><?php displayMusicStyle()?></td>
             </tr>
             </table>
               <input class="button" type="submit" name="enregistrement" value="Envoyer">
               <input  class="button" type="reset" name="annuler" value="Annuler">
               <input type="file" id="file" style="display: none;" />
-              <h3>* Champs obligatoires</h3>
       </form>
-
 
 
 

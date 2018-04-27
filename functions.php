@@ -174,7 +174,7 @@ function deleteRowByID($table, $id) {
                       <tr><td><p><b>Description : </b>'.$tab['description'].'</p></td></tr>';
     }
     echo '    </table>
-              <br/><img src="img/slash.jpg">
+              <br/><img src="img/noImg.png">
 
             </div>
           </div>
@@ -187,7 +187,7 @@ function deleteRowByID($table, $id) {
      * @param string $table
      * @param array $row
      * @return boolean si oui ou non l'insertion à fonctionnée
-     * TODO Abdelaziz / Tahina  BUG MISR A JOUR dE LA TABLE PARTICIPE PLEAAASE !!
+     * DONE Abdelaziz / Tahina 
      */
 
      function insertRow($table,$row){
@@ -264,8 +264,8 @@ function deleteRowByID($table, $id) {
 
      function updateRow($table, $row)  {
          $ptrDB = connexion();
-         $str = "UPDATE artiste SET art_nom = '".$row['art_nom']."'";
        if ($table == "artiste") {
+         $str = "UPDATE artiste SET art_nom = '".$row['art_nom']."'";
          foreach ($row as $key => $value) {
            if (!is_array($value) && $key !="art_nom" && $key !="instrument" && $key !="description" && $key !="art_id" && $key !="enregistrement") {
              if($value === '') $row["$key"] = "$key =  NULL";
@@ -293,18 +293,16 @@ function deleteRowByID($table, $id) {
 
        }
        else if ($table == "album") {
-         $query = "UPDATE artiste SET
-         alb_id = ".$row['alb_id'].
-         ",'alb_titre = ".$row['alb_titre'].
-         "','alb_sortie = ".$row['alb_sortie'].
-         "','alb_duree = ".$row['alb_duree'].
-         "','alb_genre = ".$row['alb_genre'].
-         "','alb_producteur = ".$row['alb_producteur'].
-         "','alb_label = '".$row['alb_label']."'
-          WHERE alb_id = ".$row['alb_id']." ";
-         pg_prepare($ptrDB, "reqprep4", $query);
-         $ptrQuery = pg_execute($ptrDB, "reqprep4", array());
-
+         $str = "UPDATE album SET alb_titre = '".$row['alb_titre']."'";
+         foreach ($row as $key => $value) {
+           if (!is_array($value) && $key !="alb_titre"  && $key !="description" && $key !="alb_id" && $key !="enregistrement") {
+             if($value === '') $row["$key"] = "$key =  NULL";
+             else { $row["$key"] = "$key = '".$value."'";}
+             $str .=", ".$row["$key"];
+           }
+         }
+         $str .= " WHERE alb_id = ".$row['alb_id'];
+         $ptrQuery = pg_query($ptrDB,$str);
          if($ptrQuery === false )  return false;
          else return true;
        }

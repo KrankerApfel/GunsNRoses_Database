@@ -35,7 +35,7 @@ if (valideForm($_GET, $tab)) {
         echo"</ul></li>";
     }
 	}
-  //TODO
+
   foreach ($_GET as $key => $value) {$row_art["$key"] = $value;}
   if(isset($_GET['album']) and is_array($_GET['album'])){
     foreach ($_GET['album'] as $key => $val) {

@@ -34,10 +34,16 @@ if (valideForm($_GET, $tab)) {
 
     }
 	}
+    foreach ($_GET as $key => $value) {$row_alb["$key"] = $value;}
+  if (isset($_GET['alb_id'])) {
+   if( updateRow('album',$row_alb))echo "<h2> Tout s'est effectué avec succés !</h2>";
+   else 	echo "<h2>Quelque chose a empêché la mise à jour de la  bdd</h2>";
+  }
+  else{
+    if (insertRow('album',$row_alb)) echo "<h2> Tout s'est effectué avec succés !</h2>";
+    else 	echo "<h2>Quelque chose a empêché l'insertion dans la  bdd</h2>";
+  }
 	echo "</ul>";
-  foreach ($_GET as $key => $value) {$row_alb["$key"] = $value;}
-  if (insertRow('album',$row_alb)) echo "<h2> Tout s'est effectué avec succés !</h2>";
-  else 	echo "<h2>Quelque chose a empêché l'insertion dans la  bdd</h2>";
   echo '</div></div>';
 
 

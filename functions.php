@@ -286,10 +286,7 @@ function deleteRowByID($table, $id) {
              $insertQuery .= "(".$row['art_id'].",$sou,'".$row['instrument']."')";
              pg_query($ptrDB, $insertQuery);
            }
-
          }
-
-
          //-----------------------------------
          if($ptrQuery === false )  return false;
          else return true;

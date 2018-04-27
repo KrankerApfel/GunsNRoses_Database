@@ -1,6 +1,6 @@
 <?php
 function connexion() {
-    include "connex2.php";
+    include "connex.php";
     $strConnex="host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
     $ptrDB = pg_connect($strConnex);
     return $ptrDB;
@@ -187,7 +187,7 @@ function deleteRowByID($table, $id) {
      * @param string $table
      * @param array $row
      * @return boolean si oui ou non l'insertion à fonctionnée
-     * DONE Abdelaziz / Tahina 
+     * DONE Abdelaziz / Tahina
      */
 
      function insertRow($table,$row){

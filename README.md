@@ -7,8 +7,8 @@ It's a website to present albums and members of the mythics rock band Guns and R
 # Team
 
 ...[Abdelaziz Sbaâi](https://github.com/pillowinacoma) : he likes drawing cool stuff with p5.js and has a weird profil pic
-...[Brice Simon](https://github.com/Decim298) : he does a very good job with database and forms !
-...[Tahina Rakotomanampison](https://github.com/KrankerApfel) : that's me ! I'm simply the best ;)
+...[Brice Simon](https://github.com/Decim298) : he does a very good job with database and search engine forms !
+...[Tahina Rakotomanampison](https://github.com/KrankerApfel) : that's me ! I love PHP and make beautiful website ;)
 
 # Features
 
